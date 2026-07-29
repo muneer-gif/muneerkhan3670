@@ -39,13 +39,13 @@ const CtaSection = () => {
   };
 
   return (
-    <section id="cta" className="py-24 lg:py-32 relative overflow-hidden">
-      <div className="absolute inset-0 -z-10" style={{
+    <section id="cta" className="py-24 lg:py-32 relative overflow-hidden isolate">
+      <div className="absolute inset-0 z-0" style={{
         background: 'linear-gradient(135deg, #022F71 0%, #043a7e 45%, #049297 100%)'
       }} />
-      <div className="absolute inset-0 -z-10 opacity-20 bg-grid" />
+      <div className="absolute inset-0 z-0 opacity-20 bg-grid" />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-14">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-14 relative z-10">
         <Reveal variant="left">
         <div className="text-white">
           <div className="text-xs font-medium tracking-widest uppercase text-[#A0C8D6]">Partnership</div>
