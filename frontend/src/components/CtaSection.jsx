@@ -39,7 +39,7 @@ const CtaSection = () => {
   };
 
   return (
-    <section id="cta" className="py-24 lg:py-32 relative overflow-hidden isolate">
+    <section id="cta" className="py-16 lg:py-20 relative overflow-hidden isolate">
       <div className="absolute inset-0 z-0" style={{
         background: 'linear-gradient(135deg, #022F71 0%, #043a7e 45%, #049297 100%)'
       }} />
@@ -50,7 +50,7 @@ const CtaSection = () => {
         <div className="text-white">
           <div className="text-xs font-medium tracking-widest uppercase text-[#A0C8D6]">Partnership</div>
           <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl tracking-tight leading-tight">
-            Build a more useful platform for your customers.
+            Unlock value of your network with RevaSure Partnership
           </h2>
           <p className="mt-5 text-lg text-white/80 leading-relaxed max-w-lg">
             Connect with RevaSure to explore product categories, integration options and
@@ -61,7 +61,7 @@ const CtaSection = () => {
             {[
               'Single platform relationship',
               'API-led or white-label integration',
-              'Lending, wellness, healthcare & insurance',
+              'Lending, wellness, healthcare & insurance*',
               'Coordinated operations & reporting',
             ].map((b) => (
               <div key={b} className="flex items-center gap-3 text-white/90">

@@ -1,6 +1,6 @@
 import React, { useMemo, useState } from 'react';
-import { MARKET_TILES, MARKET_FILTERS } from '../mock';
-import { TrendingUp, ArrowUpRight, X } from 'lucide-react';
+import { MARKET_TILES, MARKET_FILTERS, INSURANCE_DISCLAIMER } from '../mock';
+import { ArrowUpRight, X } from 'lucide-react';
 import Reveal from './Reveal';
 
 const MarketSection = () => {
@@ -26,24 +26,24 @@ const MarketSection = () => {
   };
 
   return (
-    <section id="markets" className="py-24 lg:py-32 relative">
+    <section id="markets" className="py-16 lg:py-20 relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <Reveal>
         <div className="max-w-3xl">
-          <div className="text-xs font-medium tracking-widest uppercase text-[#049297]">Market Opportunity</div>
+          <div className="text-xs font-medium tracking-widest uppercase text-[#049297]">Product Opportunity</div>
           <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl text-[#022F71] tracking-tight leading-tight">
-            India’s growing markets, connected through <span className="text-gradient-brand">one platform</span>
+            India&rsquo;s growing markets, connected through <span className="text-gradient-brand">RevaSure</span>
           </h2>
           <p className="mt-5 text-lg text-[#22405e] leading-relaxed">
-            RevaSure helps fintechs and corporate business correspondents expand their product
-            coverage across large and growing sectors.
+            RevaSure helps fintechs, corporate business correspondents, NGOs, SHGs and FPOs expand
+            their product coverage across large, growing sectors.
           </p>
         </div>
         </Reveal>
 
         {/* Filters */}
         <Reveal delay={80}>
-        <div className="mt-10 flex flex-wrap gap-2">
+        <div className="mt-8 flex flex-wrap gap-2">
           {MARKET_FILTERS.map((f) => (
             <button
               key={f}
@@ -60,19 +60,15 @@ const MarketSection = () => {
         </div>
         </Reveal>
 
-        {/* Dashboard controls */}
+        {/* Metric toggle (left-aligned, no dashboard heading) */}
         <Reveal delay={120}>
-        <div className="mt-8 rounded-2xl bg-white border border-[#022F71]/10 p-4 flex flex-wrap items-center justify-between gap-3">
-          <div className="flex items-center gap-2 text-sm text-[#22405e]">
-            <TrendingUp size={16} className="text-[#049297]" />
-            Interactive Market Dashboard
-          </div>
-          <div className="inline-flex rounded-lg bg-[#F7FAFC] p-1 border border-[#022F71]/10">
+        <div className="mt-6">
+          <div className="inline-flex rounded-lg bg-white p-1 border border-[#022F71]/15 shadow-sm">
             {['Current market', 'CAGR', 'Expected market'].map((m) => (
               <button
                 key={m}
                 onClick={() => setMetric(m)}
-                className={`px-3 py-1.5 text-xs font-medium rounded-md transition-colors ${
+                className={`px-4 py-2 text-xs font-semibold rounded-md transition-colors ${
                   metric === m ? 'bg-[#049297] text-white' : 'text-[#022F71] hover:text-[#049297]'
                 }`}
               >
@@ -93,7 +89,7 @@ const MarketSection = () => {
               style={{ animationDelay: `${idx * 60}ms` }}
             >
               <div className="flex items-center justify-between">
-                <span className={`text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full cat-${t.category}`}>
+                <span className={`text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full cat-${t.category.replace('*','')}`}>
                   {t.category}
                 </span>
                 <ArrowUpRight size={18} className="text-[#049297]" />
@@ -126,6 +122,9 @@ const MarketSection = () => {
             </button>
           ))}
         </div>
+
+        {/* Insurance disclaimer */}
+        <p className="mt-6 text-xs text-[#22405e] italic">{INSURANCE_DISCLAIMER}</p>
       </div>
 
       {/* Modal */}
@@ -144,7 +143,7 @@ const MarketSection = () => {
             >
               <X size={20} />
             </button>
-            <span className={`text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full cat-${selected.category}`}>
+            <span className={`text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full cat-${selected.category.replace('*','')}`}>
               {selected.category}
             </span>
             <h3 className="mt-4 text-2xl md:text-3xl font-semibold text-[#022F71]">{selected.title}</h3>

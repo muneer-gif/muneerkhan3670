@@ -1,21 +1,19 @@
 import React, { useState } from 'react';
 import { Menu, X, ArrowRight } from 'lucide-react';
-import { NAV_LINKS } from '../mock';
+import { NAV_LINKS, COMPANY_LOGO } from '../mock';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-[#F7FAFC]/85 border-b border-[#022F71]/10">
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-white/85 border-b border-[#022F71]/10">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
-        <div className="flex items-center justify-between h-20">
-          <a href="#top" className="flex items-center gap-2">
-            <div className="w-9 h-9 rounded-lg flex items-center justify-center" style={{background: 'linear-gradient(135deg,#022F71 0%,#049297 100%)'}}>
-              <div className="w-3 h-3 bg-white rounded-sm rotate-45" />
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="text-[#022F71] font-semibold text-lg tracking-tight">RevaSure</span>
-              <span className="text-[10px] text-[#049297] tracking-widest uppercase font-medium">One Platform</span>
+        <div className="flex items-center justify-between h-16">
+          <a href="#top" className="flex items-center gap-2.5">
+            <img src={COMPANY_LOGO} alt="RevaSure logo" className="h-10 w-10 object-contain" />
+            <div className="flex flex-col leading-tight">
+              <span className="text-[#022F71] font-bold text-lg tracking-tight">RevaSure</span>
+              <span className="text-[9px] text-[#049297] tracking-[0.18em] uppercase font-semibold">Connecting Care. Empowering Lives.</span>
             </div>
           </a>
 

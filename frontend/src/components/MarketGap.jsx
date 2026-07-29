@@ -5,7 +5,7 @@ import Reveal from './Reveal';
 
 const MarketGap = () => {
   return (
-    <section className="py-24 lg:py-32 bg-white relative overflow-hidden">
+    <section className="py-16 lg:py-20 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-14 items-start">
         <Reveal variant="left">
         <div>

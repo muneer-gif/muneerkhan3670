@@ -1,11 +1,11 @@
 import React from 'react';
 import { COMPARISON } from '../mock';
-import { X, Check } from 'lucide-react';
+import { AlertCircle, Check } from 'lucide-react';
 import Reveal from './Reveal';
 
 const Comparison = () => {
   return (
-    <section id="comparison" className="py-24 lg:py-32 relative">
+    <section id="comparison" className="py-16 lg:py-20 relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <Reveal>
         <div className="max-w-3xl">
@@ -21,7 +21,7 @@ const Comparison = () => {
           <div className="grid grid-cols-2 border-b border-[#022F71]/10">
             <div className="p-6 bg-[#F7FAFC]">
               <div className="text-xs uppercase tracking-widest text-[#22405e] font-semibold">Traditional expansion model</div>
-              <div className="text-lg font-semibold text-[#22405e] mt-1">The old way</div>
+              <div className="text-lg font-semibold text-[#22405e] mt-1">The Existing Way</div>
             </div>
             <div className="p-6" style={{background: 'linear-gradient(135deg, rgba(2,47,113,0.04), rgba(4,146,151,0.06))'}}>
               <div className="text-xs uppercase tracking-widest text-[#049297]">RevaSure model</div>
@@ -38,7 +38,7 @@ const Comparison = () => {
             >
               <div className="p-5 flex items-start gap-3">
                 <div className="w-7 h-7 rounded-full bg-[#22405e]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <X size={14} className="text-[#22405e]" />
+                  <AlertCircle size={14} className="text-[#22405e]" strokeWidth={2} />
                 </div>
                 <div className="text-sm text-[#22405e]">{row[0]}</div>
               </div>

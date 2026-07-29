@@ -1,37 +1,35 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, Sparkles, ShieldCheck, HeartPulse, Landmark } from 'lucide-react';
-import AnimatedCounter from './AnimatedCounter';
 
 const Hero = () => {
   return (
     <section id="top" className="hero-radial relative overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-60 pointer-events-none" />
-      {/* Soft floating orbs */}
       <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full float-slow pointer-events-none"
-           style={{background: 'radial-gradient(circle, rgba(4,146,151,0.18), transparent 65%)'}} />
+           style={{background: 'radial-gradient(circle, rgba(4,146,151,0.20), transparent 65%)'}} />
       <div className="absolute -bottom-24 right-0 w-[28rem] h-[28rem] rounded-full float-slower pointer-events-none"
-           style={{background: 'radial-gradient(circle, rgba(2,47,113,0.14), transparent 65%)'}} />
+           style={{background: 'radial-gradient(circle, rgba(2,47,113,0.16), transparent 65%)'}} />
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-16 pb-24 lg:pt-24 lg:pb-32 relative">
-        <div className="grid lg:grid-cols-12 gap-12 items-center">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-12 pb-16 lg:pt-16 lg:pb-20 relative">
+        <div className="grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 fade-in-up">
-            <div className="inline-flex items-center gap-2 rounded-full border border-[#049297]/25 bg-white/70 px-4 py-1.5 text-xs font-medium text-[#022F71] shadow-sm">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#049297]/25 bg-white/80 px-4 py-1.5 text-xs font-medium text-[#022F71] shadow-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-[#049297] pulse-dot" />
               Trust <span className="text-[#049297]">&bull;</span> Technology <span className="text-[#049297]">&bull;</span> Healthcare <span className="text-[#049297]">&bull;</span> Reach
             </div>
 
             <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-[#022F71]">
               Your platform has reach. <br />
-              <span className="text-gradient-brand">RevaSure</span> helps it serve more needs.
+              <span className="text-gradient-brand">RevSure</span> helps you monetise better.
             </h1>
 
             <p className="mt-6 text-lg text-[#22405e] max-w-2xl leading-relaxed">
-              Offer lending, wellness, healthcare and insurance products through one unified,
-              white-label platform &mdash; without managing separate partnerships, integrations and
-              operational workflows for every category.
+              Offer lending, wellness, healthcare and insurance* products through a single gateway,
+              white-label platform&mdash;without managing separate partnerships, integrations and
+              operational workflows.
             </p>
 
-            <div className="mt-9 flex flex-wrap items-center gap-4">
+            <div className="mt-8 flex flex-wrap items-center gap-4">
               <a href="#cta" className="btn-primary rounded-lg px-6 py-3 text-sm font-medium inline-flex items-center gap-2">
                 Partner with RevaSure <ArrowRight size={16} />
               </a>
@@ -39,8 +37,6 @@ const Hero = () => {
                 Explore market opportunities
               </a>
             </div>
-
-            <HeroStats />
           </div>
 
           <div className="lg:col-span-5">
@@ -52,44 +48,12 @@ const Hero = () => {
   );
 };
 
-const HeroStats = () => {
-  const stats = [
-    { prefix: '\u20b9', value: 139, suffix: '+ L Cr', label: 'Combined market reach' },
-    { value: 7, label: 'Product categories' },
-    { value: 1, suffix: ' API', label: 'Or white-label UI' },
-    { value: 2047, label: 'Insurance for All', raw: true },
-  ];
-  return (
-    <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl">
-      {stats.map((s, i) => (
-        <div
-          key={s.label}
-          className="rounded-xl bg-white/70 border border-[#022F71]/10 p-4 backdrop-blur card-hover fade-in-up"
-          style={{ animationDelay: `${200 + i * 90}ms` }}
-        >
-          <div className="text-xl font-semibold text-[#022F71]">
-            {s.raw ? s.value : (
-              <AnimatedCounter
-                prefix={s.prefix || ''}
-                suffix={s.suffix || ''}
-                value={s.value}
-                duration={1400}
-              />
-            )}
-          </div>
-          <div className="text-xs text-[#22405e] mt-1">{s.label}</div>
-        </div>
-      ))}
-    </div>
-  );
-};
-
 const HeroVisual = () => {
   const nodes = [
     { icon: Landmark, label: 'Lending', color: '#022F71' },
     { icon: HeartPulse, label: 'Wellness', color: '#049297' },
     { icon: Sparkles, label: 'Healthcare', color: '#049297' },
-    { icon: ShieldCheck, label: 'Insurance', color: '#558CA1' },
+    { icon: ShieldCheck, label: 'Insurance*', color: '#558CA1' },
   ];
 
   const wrapRef = useRef(null);
@@ -98,7 +62,6 @@ const HeroVisual = () => {
   useEffect(() => {
     const el = wrapRef.current;
     if (!el) return;
-
     const handleMove = (e) => {
       const rect = el.getBoundingClientRect();
       const cx = rect.left + rect.width / 2;
@@ -108,7 +71,6 @@ const HeroVisual = () => {
       setTilt({ x: dx * 8, y: dy * -8 });
     };
     const handleLeave = () => setTilt({ x: 0, y: 0 });
-
     window.addEventListener('mousemove', handleMove);
     el.addEventListener('mouseleave', handleLeave);
     return () => {
@@ -126,12 +88,10 @@ const HeroVisual = () => {
         transition: 'transform 200ms ease-out',
       }}
     >
-      {/* rings */}
       <div className="absolute inset-0 rounded-full border border-[#022F71]/10 orbit-spin" />
       <div className="absolute inset-6 rounded-full border border-[#049297]/15 orbit-spin-rev" />
       <div className="absolute inset-14 rounded-full border border-[#A0C8D6]/40 orbit-spin" />
 
-      {/* center hub */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="relative w-40 h-40 rounded-3xl flex items-center justify-center text-white shadow-2xl glow-ring"
              style={{background: 'linear-gradient(135deg,#022F71 0%,#049297 100%)'}}>
@@ -143,7 +103,6 @@ const HeroVisual = () => {
         </div>
       </div>
 
-      {/* nodes */}
       {nodes.map((n, i) => {
         const angle = (i / nodes.length) * Math.PI * 2 - Math.PI / 2;
         const r = 44;
@@ -164,7 +123,6 @@ const HeroVisual = () => {
         );
       })}
 
-      {/* connector lines */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
         {nodes.map((_, i) => {
           const angle = (i / nodes.length) * Math.PI * 2 - Math.PI / 2;

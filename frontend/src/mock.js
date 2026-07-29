@@ -1,11 +1,12 @@
 // Mock data for RevaSure landing site
 
+export const COMPANY_LOGO = 'https://customer-assets-agu9un31.emergentagent.net/job_pdf-web-design-2/artifacts/rm5urnd3_Company%20Logo.png';
+
 export const NAV_LINKS = [
-  { label: 'Markets', href: '#markets' },
+  { label: 'Products', href: '#markets' },
   { label: 'Platform', href: '#platform' },
   { label: 'Architecture', href: '#architecture' },
   { label: 'Comparison', href: '#comparison' },
-  { label: 'Trust', href: '#trust' },
 ];
 
 export const MARKET_TILES = [
@@ -81,8 +82,8 @@ export const MARKET_TILES = [
   },
   {
     id: 'retail-insurance',
-    title: 'Retail Insurance',
-    category: 'Insurance',
+    title: 'Retail Insurance*',
+    category: 'Insurance*',
     label: 'Expanding protection market',
     currentSize: '₹11.9 L Cr',
     currentSizeNumeric: 11.9,
@@ -95,8 +96,8 @@ export const MARKET_TILES = [
   },
   {
     id: 'micro-insurance',
-    title: 'Micro-insurance',
-    category: 'Insurance',
+    title: 'Micro-insurance*',
+    category: 'Insurance*',
     label: 'Inclusive insurance growth',
     currentSize: '₹4,160 Cr',
     currentSizeNumeric: 0.416,
@@ -109,7 +110,7 @@ export const MARKET_TILES = [
   },
 ];
 
-export const MARKET_FILTERS = ['All markets', 'Lending', 'Wellness', 'Healthcare', 'Insurance'];
+export const MARKET_FILTERS = ['All markets', 'Lending', 'Wellness', 'Healthcare', 'Insurance*'];
 
 export const MARKET_GAPS = [
   'Separate partnerships for each product',
@@ -118,29 +119,6 @@ export const MARKET_GAPS = [
   'Complex lead-management processes',
   'Product-specific regulatory requirements',
   'Fragmented fulfilment and reconciliation workflows',
-];
-
-export const VALUE_CARDS = [
-  {
-    icon: 'Layers',
-    title: 'One platform',
-    text: 'Access lending, wellness, healthcare and insurance products through a unified product ecosystem.',
-  },
-  {
-    icon: 'Plug',
-    title: 'One integration',
-    text: 'Connect through a single API or deploy RevaSure’s white-label interface within your existing platform.',
-  },
-  {
-    icon: 'Workflow',
-    title: 'One operating layer',
-    text: 'RevaSure coordinates product, technology and operational workflows across the connected ecosystem.',
-  },
-  {
-    icon: 'Sparkles',
-    title: 'Partner outcome',
-    text: 'Your organisation can focus on its core business while offering customers more relevant products.',
-  },
 ];
 
 export const ARCHITECTURE_STEPS = [
@@ -163,7 +141,7 @@ export const ARCHITECTURE_STEPS = [
     icon: 'Boxes',
     title: 'Product ecosystem',
     body: 'Customers can access:',
-    items: ['Personal loans', 'Business loans', 'Gold loans', 'Wellness products', 'Healthcare products', 'Retail insurance', 'Micro-insurance'],
+    items: ['Personal loans', 'Business loans', 'Gold loans', 'Wellness products', 'Healthcare products', 'Retail insurance*', 'Micro-insurance*'],
   },
   {
     id: 4,
@@ -176,7 +154,7 @@ export const ARCHITECTURE_STEPS = [
     id: 5,
     icon: 'Users',
     title: 'Customer experience',
-    body: 'Customers receive access to more relevant products through the platform they already use.',
+    body: 'Customers receive access to more relevant products within your ecosystem.',
     items: [],
   },
 ];
@@ -187,31 +165,11 @@ export const COMPARISON = [
   ['Separate integrations', 'Single API or white-label integration'],
   ['Fragmented product workflows', 'Coordinated operating layer'],
   ['Multiple reporting processes', 'Unified reporting and reconciliation'],
-  ['Limited product coverage', 'Lending, wellness, healthcare and insurance access'],
+  ['Limited product coverage', 'Lending, wellness, healthcare and insurance* access'],
+  ['Higher Manpower Cost', 'Lowest Manpower cost'],
 ];
 
-export const TRUST_CARDS = [
-  {
-    icon: 'Code2',
-    title: 'Technology',
-    text: 'API-led and white-label integration options for digital and assisted channels.',
-  },
-  {
-    icon: 'Package',
-    title: 'Product breadth',
-    text: 'Access to lending, wellness, healthcare and insurance categories through one platform.',
-  },
-  {
-    icon: 'HeartPulse',
-    title: 'Healthcare focus',
-    text: 'Designed to support the growing demand for wellness and healthcare products in India.',
-  },
-  {
-    icon: 'ShieldCheck',
-    title: 'Operational reliability',
-    text: 'Structured workflows for product discovery, lead movement, fulfilment and reporting.',
-  },
-];
+export const PARTNER_TYPES = ['Fintech', 'Corporate Business Correspondent', 'NGO', 'SHG', 'FPO', 'NBFC', 'Bank', 'Other'];
+export const PRODUCT_CATEGORIES = ['Lending', 'Wellness', 'Healthcare', 'Insurance*', 'Multiple categories', 'None yet'];
 
-export const PARTNER_TYPES = ['Fintech', 'Corporate Business Correspondent', 'NBFC', 'Bank', 'Other'];
-export const PRODUCT_CATEGORIES = ['Lending', 'Wellness', 'Healthcare', 'Insurance', 'Multiple categories', 'None yet'];
+export const INSURANCE_DISCLAIMER = '*Insurance products are subject to applicable regulatory requirements and the processes of authorised product partners.';

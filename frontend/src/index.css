@@ -9,7 +9,12 @@ body {
   font-family: 'Poppins', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #F7FAFC;
+  background-color: #EAF3F6;
+  background-image:
+    radial-gradient(1200px 700px at 90% -10%, rgba(4, 146, 151, 0.10), transparent 60%),
+    radial-gradient(900px 600px at -10% 20%, rgba(2, 47, 113, 0.08), transparent 55%),
+    radial-gradient(700px 400px at 60% 100%, rgba(160, 200, 214, 0.35), transparent 60%);
+  background-attachment: fixed;
   color: #0B1B33;
 }
 
@@ -78,9 +83,9 @@ code {
 
 .hero-radial {
   background:
-    radial-gradient(1200px 500px at 85% -10%, rgba(4, 146, 151, 0.14), transparent 60%),
-    radial-gradient(900px 500px at -10% 20%, rgba(2, 47, 113, 0.10), transparent 55%),
-    linear-gradient(180deg, #F7FAFC 0%, #FFFFFF 100%);
+    radial-gradient(1200px 500px at 85% -10%, rgba(4, 146, 151, 0.20), transparent 60%),
+    radial-gradient(900px 500px at -10% 20%, rgba(2, 47, 113, 0.14), transparent 55%),
+    linear-gradient(180deg, #EAF3F6 0%, #F7FAFC 100%);
 }
 
 .card-hover {

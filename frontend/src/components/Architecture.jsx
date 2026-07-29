@@ -10,7 +10,7 @@ const Architecture = () => {
   const StepIcon = LucideIcons[step.icon] || LucideIcons.Circle;
 
   return (
-    <section id="architecture" className="py-24 lg:py-32 bg-white relative">
+    <section id="architecture" className="py-16 lg:py-20 bg-white relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <Reveal>
         <div className="max-w-3xl">
