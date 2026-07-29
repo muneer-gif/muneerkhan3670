@@ -77,7 +77,7 @@ const HeroStats = () => {
               />
             )}
           </div>
-          <div className="text-xs text-[#22405e]/80 mt-1">{s.label}</div>
+          <div className="text-xs text-[#22405e] mt-1">{s.label}</div>
         </div>
       ))}
     </div>

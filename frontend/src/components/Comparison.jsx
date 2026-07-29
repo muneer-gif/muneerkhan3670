@@ -20,7 +20,7 @@ const Comparison = () => {
         <div className="mt-12 rounded-2xl border border-[#022F71]/10 bg-white overflow-hidden">
           <div className="grid grid-cols-2 border-b border-[#022F71]/10">
             <div className="p-6 bg-[#F7FAFC]">
-              <div className="text-xs uppercase tracking-widest text-[#558CA1]">Traditional expansion model</div>
+              <div className="text-xs uppercase tracking-widest text-[#22405e] font-semibold">Traditional expansion model</div>
               <div className="text-lg font-semibold text-[#22405e] mt-1">The old way</div>
             </div>
             <div className="p-6" style={{background: 'linear-gradient(135deg, rgba(2,47,113,0.04), rgba(4,146,151,0.06))'}}>
@@ -37,8 +37,8 @@ const Comparison = () => {
               }`}
             >
               <div className="p-5 flex items-start gap-3">
-                <div className="w-7 h-7 rounded-full bg-[#558CA1]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                  <X size={14} className="text-[#558CA1]" />
+                <div className="w-7 h-7 rounded-full bg-[#22405e]/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                  <X size={14} className="text-[#22405e]" />
                 </div>
                 <div className="text-sm text-[#22405e]">{row[0]}</div>
               </div>

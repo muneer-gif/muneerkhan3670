@@ -15,7 +15,7 @@ const Navbar = () => {
             </div>
             <div className="flex flex-col leading-none">
               <span className="text-[#022F71] font-semibold text-lg tracking-tight">RevaSure</span>
-              <span className="text-[10px] text-[#558CA1] tracking-widest uppercase">One Platform</span>
+              <span className="text-[10px] text-[#049297] tracking-widest uppercase font-medium">One Platform</span>
             </div>
           </a>
 
@@ -24,7 +24,7 @@ const Navbar = () => {
               <a
                 key={l.href}
                 href={l.href}
-                className="text-sm font-medium text-[#022F71]/80 hover:text-[#049297] transition-colors relative group"
+                className="text-sm font-medium text-[#022F71] hover:text-[#049297] transition-colors relative group"
               >
                 {l.label}
                 <span className="absolute -bottom-1 left-0 h-[2px] w-0 bg-[#049297] group-hover:w-full transition-all duration-300" />

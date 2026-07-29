@@ -45,7 +45,7 @@ const MarketGap = () => {
             >
               <div className="flex items-start gap-3">
                 <div className="w-9 h-9 rounded-lg bg-white border border-[#022F71]/10 flex items-center justify-center">
-                  <AlertCircle size={18} className="text-[#558CA1]" strokeWidth={1.6} />
+                  <AlertCircle size={18} className="text-[#049297]" strokeWidth={1.6} />
                 </div>
                 <div className="text-sm font-medium text-[#022F71] leading-snug pt-1.5">{g}</div>
               </div>

@@ -47,10 +47,10 @@ const Architecture = () => {
                     <Icon size={20} strokeWidth={1.6} className={isActive ? 'text-white' : 'text-[#049297]'} />
                   </div>
                   <div className="flex-1">
-                    <div className={`text-[11px] uppercase tracking-widest ${isActive ? 'text-white/70' : 'text-[#558CA1]'}`}>Step {s.id}</div>
+                    <div className={`text-[11px] uppercase tracking-widest font-semibold ${isActive ? 'text-white/90' : 'text-[#049297]'}`}>Step {s.id}</div>
                     <div className="font-semibold">{s.title}</div>
                   </div>
-                  <ChevronRight size={18} className={isActive ? 'text-white' : 'text-[#558CA1]'} />
+                  <ChevronRight size={18} className={isActive ? 'text-white' : 'text-[#049297]'} />
                 </button>
               );
             })}

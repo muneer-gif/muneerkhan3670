@@ -100,13 +100,13 @@ const MarketSection = () => {
               </div>
 
               <h3 className="mt-4 text-xl font-semibold text-[#022F71]">{t.title}</h3>
-              <div className="text-xs text-[#558CA1] mt-1">{t.label}</div>
+              <div className="text-xs text-[#049297] mt-1 font-medium">{t.label}</div>
 
               <div className="mt-5 space-y-3">
                 <MetricRow label="Current size" value={t.currentSize} />
                 <MetricRow label="CAGR" value={t.cagr} accent />
                 <div className="pt-2">
-                  <div className="flex items-center justify-between text-[11px] text-[#22405e]/70">
+                  <div className="flex items-center justify-between text-[11px] text-[#22405e]">
                     <span>{metric}</span>
                     <span className="font-medium text-[#022F71]">
                       {metric === 'CAGR' ? `${barValue(t)}%` : `₹${barValue(t)} L Cr`}
@@ -170,14 +170,14 @@ const MarketSection = () => {
 
 const MetricRow = ({ label, value, accent }) => (
   <div className="flex items-center justify-between text-sm">
-    <span className="text-[#22405e]/70">{label}</span>
+    <span className="text-[#22405e]">{label}</span>
     <span className={`font-semibold ${accent ? 'text-[#049297]' : 'text-[#022F71]'}`}>{value}</span>
   </div>
 );
 
 const InfoBlock = ({ label, value, accent }) => (
   <div className="rounded-xl border border-[#022F71]/10 p-4 bg-white">
-    <div className="text-xs uppercase tracking-widest text-[#558CA1]">{label}</div>
+    <div className="text-xs uppercase tracking-widest text-[#049297] font-semibold">{label}</div>
     <div className={`mt-1 font-semibold ${accent ? 'text-[#049297]' : 'text-[#022F71]'}`}>{value}</div>
   </div>
 );

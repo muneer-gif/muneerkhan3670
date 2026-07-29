@@ -46,7 +46,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs text-white/60">
+        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row items-start md:items-center justify-between gap-3 text-xs text-white/80">
           <div>© {new Date().getFullYear()} RevaSure. All rights reserved.</div>
           <div className="flex gap-6">
             <a href="#" className="hover:text-white">Privacy</a>

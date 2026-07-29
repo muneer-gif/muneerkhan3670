@@ -151,7 +151,7 @@ const CtaSection = () => {
 
 const Field = ({ label, children }) => (
   <div className="space-y-1.5">
-    <Label className="text-xs uppercase tracking-widest text-[#558CA1]">{label}</Label>
+    <Label className="text-xs uppercase tracking-widest text-[#022F71] font-semibold">{label}</Label>
     {children}
   </div>
 );
