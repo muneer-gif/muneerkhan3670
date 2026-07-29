@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import * as LucideIcons from 'lucide-react';
 import { ARCHITECTURE_STEPS } from '../mock';
 import { ChevronRight } from 'lucide-react';
+import Reveal from './Reveal';
 
 const Architecture = () => {
   const [active, setActive] = useState(2);
@@ -11,19 +12,22 @@ const Architecture = () => {
   return (
     <section id="architecture" className="py-24 lg:py-32 bg-white relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <Reveal>
         <div className="max-w-3xl">
           <div className="text-xs font-medium tracking-widest uppercase text-[#049297]">Solution Architecture</div>
           <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl text-[#022F71] tracking-tight leading-tight">
             How RevaSure <span className="text-gradient-brand">connects the flow</span>
           </h2>
           <p className="mt-5 text-lg text-[#22405e] leading-relaxed">
-            From your existing platform to a coordinated product ecosystem — in five clear steps.
+            From your existing platform to a coordinated product ecosystem &mdash; in five clear steps.
           </p>
         </div>
+        </Reveal>
 
         <div className="mt-14 grid lg:grid-cols-12 gap-8">
           {/* Steps rail */}
-          <div className="lg:col-span-5 space-y-3">
+          <Reveal variant="left" delay={80} className="lg:col-span-5">
+          <div className="space-y-3">
             {ARCHITECTURE_STEPS.map((s) => {
               const Icon = LucideIcons[s.icon] || LucideIcons.Circle;
               const isActive = s.id === active;
@@ -51,9 +55,11 @@ const Architecture = () => {
               );
             })}
           </div>
+          </Reveal>
 
           {/* Detail panel */}
-          <div className="lg:col-span-7">
+          <Reveal variant="right" delay={160} className="lg:col-span-7">
+          <div>
             <div className="rounded-2xl border border-[#022F71]/10 p-8 lg:p-10 h-full relative overflow-hidden bg-[#F7FAFC]">
               <div className="absolute -right-16 -top-16 w-64 h-64 rounded-full" style={{background: 'radial-gradient(circle, rgba(4,146,151,0.10), transparent 70%)'}} />
               <div className="relative">
@@ -82,6 +88,7 @@ const Architecture = () => {
               </div>
             </div>
           </div>
+          </Reveal>
         </div>
       </div>
     </section>

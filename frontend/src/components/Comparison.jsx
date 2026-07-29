@@ -1,18 +1,22 @@
 import React from 'react';
 import { COMPARISON } from '../mock';
 import { X, Check } from 'lucide-react';
+import Reveal from './Reveal';
 
 const Comparison = () => {
   return (
     <section id="comparison" className="py-24 lg:py-32 relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <Reveal>
         <div className="max-w-3xl">
           <div className="text-xs font-medium tracking-widest uppercase text-[#049297]">Traditional vs RevaSure</div>
           <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl text-[#022F71] tracking-tight leading-tight">
             A simpler way to <span className="text-gradient-brand">expand your platform</span>
           </h2>
         </div>
+        </Reveal>
 
+        <Reveal delay={100}>
         <div className="mt-12 rounded-2xl border border-[#022F71]/10 bg-white overflow-hidden">
           <div className="grid grid-cols-2 border-b border-[#022F71]/10">
             <div className="p-6 bg-[#F7FAFC]">
@@ -28,7 +32,7 @@ const Comparison = () => {
           {COMPARISON.map((row, i) => (
             <div
               key={i}
-              className={`grid grid-cols-2 border-b border-[#022F71]/5 last:border-b-0 ${
+              className={`grid grid-cols-2 border-b border-[#022F71]/5 last:border-b-0 hover:bg-[#049297]/[0.03] transition-colors ${
                 i % 2 === 0 ? 'bg-white' : 'bg-[#F7FAFC]/60'
               }`}
             >
@@ -47,6 +51,7 @@ const Comparison = () => {
             </div>
           ))}
         </div>
+        </Reveal>
       </div>
     </section>
   );

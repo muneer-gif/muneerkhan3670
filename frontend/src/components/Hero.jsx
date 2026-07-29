@@ -1,16 +1,23 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, Sparkles, ShieldCheck, HeartPulse, Landmark } from 'lucide-react';
+import AnimatedCounter from './AnimatedCounter';
 
 const Hero = () => {
   return (
     <section id="top" className="hero-radial relative overflow-hidden">
       <div className="absolute inset-0 bg-grid opacity-60 pointer-events-none" />
+      {/* Soft floating orbs */}
+      <div className="absolute -top-24 -left-24 w-96 h-96 rounded-full float-slow pointer-events-none"
+           style={{background: 'radial-gradient(circle, rgba(4,146,151,0.18), transparent 65%)'}} />
+      <div className="absolute -bottom-24 right-0 w-[28rem] h-[28rem] rounded-full float-slower pointer-events-none"
+           style={{background: 'radial-gradient(circle, rgba(2,47,113,0.14), transparent 65%)'}} />
+
       <div className="max-w-7xl mx-auto px-6 lg:px-10 pt-16 pb-24 lg:pt-24 lg:pb-32 relative">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
           <div className="lg:col-span-7 fade-in-up">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#049297]/25 bg-white/70 px-4 py-1.5 text-xs font-medium text-[#022F71] shadow-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-[#049297] pulse-dot" />
-              Trust <span className="text-[#049297]">•</span> Technology <span className="text-[#049297]">•</span> Healthcare <span className="text-[#049297]">•</span> Reach
+              Trust <span className="text-[#049297]">&bull;</span> Technology <span className="text-[#049297]">&bull;</span> Healthcare <span className="text-[#049297]">&bull;</span> Reach
             </div>
 
             <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-[#022F71]">
@@ -20,7 +27,7 @@ const Hero = () => {
 
             <p className="mt-6 text-lg text-[#22405e] max-w-2xl leading-relaxed">
               Offer lending, wellness, healthcare and insurance products through one unified,
-              white-label platform — without managing separate partnerships, integrations and
+              white-label platform &mdash; without managing separate partnerships, integrations and
               operational workflows for every category.
             </p>
 
@@ -33,19 +40,7 @@ const Hero = () => {
               </a>
             </div>
 
-            <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl">
-              {[
-                { k: '₹139+ L Cr', v: 'Combined market reach' },
-                { k: '7', v: 'Product categories' },
-                { k: '1 API', v: 'Or white-label UI' },
-                { k: '2047', v: 'Insurance for All' },
-              ].map((s) => (
-                <div key={s.v} className="rounded-xl bg-white/70 border border-[#022F71]/10 p-4 backdrop-blur">
-                  <div className="text-xl font-semibold text-[#022F71]">{s.k}</div>
-                  <div className="text-xs text-[#22405e]/80 mt-1">{s.v}</div>
-                </div>
-              ))}
-            </div>
+            <HeroStats />
           </div>
 
           <div className="lg:col-span-5">
@@ -57,6 +52,38 @@ const Hero = () => {
   );
 };
 
+const HeroStats = () => {
+  const stats = [
+    { prefix: '\u20b9', value: 139, suffix: '+ L Cr', label: 'Combined market reach' },
+    { value: 7, label: 'Product categories' },
+    { value: 1, suffix: ' API', label: 'Or white-label UI' },
+    { value: 2047, label: 'Insurance for All', raw: true },
+  ];
+  return (
+    <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4 max-w-2xl">
+      {stats.map((s, i) => (
+        <div
+          key={s.label}
+          className="rounded-xl bg-white/70 border border-[#022F71]/10 p-4 backdrop-blur card-hover fade-in-up"
+          style={{ animationDelay: `${200 + i * 90}ms` }}
+        >
+          <div className="text-xl font-semibold text-[#022F71]">
+            {s.raw ? s.value : (
+              <AnimatedCounter
+                prefix={s.prefix || ''}
+                suffix={s.suffix || ''}
+                value={s.value}
+                duration={1400}
+              />
+            )}
+          </div>
+          <div className="text-xs text-[#22405e]/80 mt-1">{s.label}</div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const HeroVisual = () => {
   const nodes = [
     { icon: Landmark, label: 'Lending', color: '#022F71' },
@@ -64,16 +91,49 @@ const HeroVisual = () => {
     { icon: Sparkles, label: 'Healthcare', color: '#049297' },
     { icon: ShieldCheck, label: 'Insurance', color: '#558CA1' },
   ];
+
+  const wrapRef = useRef(null);
+  const [tilt, setTilt] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const el = wrapRef.current;
+    if (!el) return;
+
+    const handleMove = (e) => {
+      const rect = el.getBoundingClientRect();
+      const cx = rect.left + rect.width / 2;
+      const cy = rect.top + rect.height / 2;
+      const dx = (e.clientX - cx) / rect.width;
+      const dy = (e.clientY - cy) / rect.height;
+      setTilt({ x: dx * 8, y: dy * -8 });
+    };
+    const handleLeave = () => setTilt({ x: 0, y: 0 });
+
+    window.addEventListener('mousemove', handleMove);
+    el.addEventListener('mouseleave', handleLeave);
+    return () => {
+      window.removeEventListener('mousemove', handleMove);
+      el.removeEventListener('mouseleave', handleLeave);
+    };
+  }, []);
+
   return (
-    <div className="relative aspect-square max-w-md mx-auto">
+    <div
+      ref={wrapRef}
+      className="relative aspect-square max-w-md mx-auto"
+      style={{
+        transform: `perspective(1000px) rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)`,
+        transition: 'transform 200ms ease-out',
+      }}
+    >
       {/* rings */}
-      <div className="absolute inset-0 rounded-full border border-[#022F71]/10" />
-      <div className="absolute inset-6 rounded-full border border-[#049297]/15" />
-      <div className="absolute inset-14 rounded-full border border-[#A0C8D6]/40" />
+      <div className="absolute inset-0 rounded-full border border-[#022F71]/10 orbit-spin" />
+      <div className="absolute inset-6 rounded-full border border-[#049297]/15 orbit-spin-rev" />
+      <div className="absolute inset-14 rounded-full border border-[#A0C8D6]/40 orbit-spin" />
 
       {/* center hub */}
       <div className="absolute inset-0 flex items-center justify-center">
-        <div className="relative w-40 h-40 rounded-3xl flex items-center justify-center text-white shadow-2xl"
+        <div className="relative w-40 h-40 rounded-3xl flex items-center justify-center text-white shadow-2xl glow-ring"
              style={{background: 'linear-gradient(135deg,#022F71 0%,#049297 100%)'}}>
           <div className="text-center px-4">
             <div className="text-xs uppercase tracking-[0.2em] opacity-80">RevaSure</div>
@@ -86,25 +146,25 @@ const HeroVisual = () => {
       {/* nodes */}
       {nodes.map((n, i) => {
         const angle = (i / nodes.length) * Math.PI * 2 - Math.PI / 2;
-        const r = 44; // % of container
+        const r = 44;
         const x = 50 + Math.cos(angle) * r;
         const y = 50 + Math.sin(angle) * r;
         const Icon = n.icon;
         return (
           <div
             key={n.label}
-            className="absolute -translate-x-1/2 -translate-y-1/2 group"
+            className={`absolute -translate-x-1/2 -translate-y-1/2 ${i % 2 === 0 ? 'float-slow' : 'float-slower'}`}
             style={{ left: `${x}%`, top: `${y}%` }}
           >
             <div className="w-20 h-20 rounded-2xl bg-white border border-[#022F71]/10 shadow-lg flex flex-col items-center justify-center gap-1 card-hover">
-              <Icon size={22} style={{ color: n.color, strokeWidth: 1.6 }} />
+              <Icon size={22} style={{ color: n.color, strokeWidth: 1.6 }} className="icon-lift" />
               <span className="text-[11px] font-medium text-[#022F71]">{n.label}</span>
             </div>
           </div>
         );
       })}
 
-      {/* connector lines using svg */}
+      {/* connector lines */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
         {nodes.map((_, i) => {
           const angle = (i / nodes.length) * Math.PI * 2 - Math.PI / 2;

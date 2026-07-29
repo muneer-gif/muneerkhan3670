@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { MARKET_TILES, MARKET_FILTERS } from '../mock';
 import { TrendingUp, ArrowUpRight, X } from 'lucide-react';
+import Reveal from './Reveal';
 
 const MarketSection = () => {
   const [filter, setFilter] = useState('All markets');
@@ -27,6 +28,7 @@ const MarketSection = () => {
   return (
     <section id="markets" className="py-24 lg:py-32 relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
+        <Reveal>
         <div className="max-w-3xl">
           <div className="text-xs font-medium tracking-widest uppercase text-[#049297]">Market Opportunity</div>
           <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl text-[#022F71] tracking-tight leading-tight">
@@ -37,8 +39,10 @@ const MarketSection = () => {
             coverage across large and growing sectors.
           </p>
         </div>
+        </Reveal>
 
         {/* Filters */}
+        <Reveal delay={80}>
         <div className="mt-10 flex flex-wrap gap-2">
           {MARKET_FILTERS.map((f) => (
             <button
@@ -54,8 +58,10 @@ const MarketSection = () => {
             </button>
           ))}
         </div>
+        </Reveal>
 
         {/* Dashboard controls */}
+        <Reveal delay={120}>
         <div className="mt-8 rounded-2xl bg-white border border-[#022F71]/10 p-4 flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-2 text-sm text-[#22405e]">
             <TrendingUp size={16} className="text-[#049297]" />
@@ -75,6 +81,7 @@ const MarketSection = () => {
             ))}
           </div>
         </div>
+        </Reveal>
 
         {/* Tiles */}
         <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-3 gap-6">

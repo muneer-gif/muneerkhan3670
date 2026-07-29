@@ -12,6 +12,7 @@ import {
   SelectValue,
 } from './ui/select';
 import { useToast } from '../hooks/use-toast';
+import Reveal from './Reveal';
 
 const CtaSection = () => {
   const { toast } = useToast();
@@ -45,6 +46,7 @@ const CtaSection = () => {
       <div className="absolute inset-0 -z-10 opacity-20 bg-grid" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-14">
+        <Reveal variant="left">
         <div className="text-white">
           <div className="text-xs font-medium tracking-widest uppercase text-[#A0C8D6]">Partnership</div>
           <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl tracking-tight leading-tight">
@@ -71,7 +73,9 @@ const CtaSection = () => {
             ))}
           </div>
         </div>
+        </Reveal>
 
+        <Reveal variant="right" delay={120}>
         <div className="rounded-2xl bg-white p-7 md:p-9 shadow-2xl border border-white/20">
           {submitted ? (
             <div className="text-center py-10">
@@ -139,6 +143,7 @@ const CtaSection = () => {
             </form>
           )}
         </div>
+        </Reveal>
       </div>
     </section>
   );

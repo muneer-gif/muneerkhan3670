@@ -1,11 +1,13 @@
 import React from 'react';
 import { MARKET_GAPS } from '../mock';
 import { AlertCircle, ArrowRight } from 'lucide-react';
+import Reveal from './Reveal';
 
 const MarketGap = () => {
   return (
     <section className="py-24 lg:py-32 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-14 items-start">
+        <Reveal variant="left">
         <div>
           <div className="text-xs font-medium tracking-widest uppercase text-[#049297]">The Market Gap</div>
           <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl text-[#022F71] tracking-tight leading-tight">
@@ -31,7 +33,9 @@ const MarketGap = () => {
             </div>
           </div>
         </div>
+        </Reveal>
 
+        <Reveal variant="right" delay={100}>
         <div className="grid sm:grid-cols-2 gap-4">
           {MARKET_GAPS.map((g, i) => (
             <div
@@ -48,6 +52,7 @@ const MarketGap = () => {
             </div>
           ))}
         </div>
+        </Reveal>
       </div>
     </section>
   );
