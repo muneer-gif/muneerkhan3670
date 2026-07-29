@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F7FAFC;
+  color: #0B1B33;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+@layer base {
+  :root {
+    --background: 210 40% 98%;
+    --foreground: 216 65% 12%;
+    --card: 0 0% 100%;
+    --card-foreground: 216 65% 12%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 216 65% 12%;
+    --primary: 217 96% 23%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 197 34% 79%;
+    --secondary-foreground: 217 96% 23%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 215 20% 40%;
+    --accent: 182 95% 30%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62% 40%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 210 30% 88%;
+    --input: 210 30% 88%;
+    --ring: 217 96% 23%;
+    --radius: 0.75rem;
+
+    /* RevaSure brand tokens */
+    --deep-trust-blue: #022F71;
+    --digital-teal: #049297;
+    --royal-blue: #558CA1;
+    --aqua-mist: #A0C8D6;
+    --soft-white: #F7FAFC;
+    --success-green: #2E8B57;
+  }
+}
+
+@layer base {
+  * { @apply border-border; }
+  body { @apply bg-background text-foreground; }
+}
+
+/* Utilities */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(2, 47, 113, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(2, 47, 113, 0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+}
+
+.text-gradient-brand {
+  background: linear-gradient(90deg, #022F71 0%, #049297 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.hero-radial {
+  background:
+    radial-gradient(1200px 500px at 85% -10%, rgba(4, 146, 151, 0.14), transparent 60%),
+    radial-gradient(900px 500px at -10% 20%, rgba(2, 47, 113, 0.10), transparent 55%),
+    linear-gradient(180deg, #F7FAFC 0%, #FFFFFF 100%);
+}
+
+.card-hover {
+  transition: transform 300ms ease, box-shadow 300ms ease, border-color 300ms ease;
+}
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px -20px rgba(2, 47, 113, 0.25);
+  border-color: rgba(4, 146, 151, 0.35);
+}
+
+.btn-primary {
+  background-color: #022F71;
+  color: #fff;
+  transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+.btn-primary:hover {
+  background-color: #04266b;
+  box-shadow: 0 10px 24px -12px rgba(2, 47, 113, 0.6);
+}
+
+.btn-teal {
+  background-color: #049297;
+  color: #fff;
+  transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+.btn-teal:hover {
+  background-color: #037e83;
+  box-shadow: 0 10px 24px -12px rgba(4, 146, 151, 0.6);
+}
+
+.btn-outline-brand {
+  background-color: transparent;
+  color: #022F71;
+  border: 1px solid #022F71;
+  transition: background-color 200ms ease, color 200ms ease;
+}
+.btn-outline-brand:hover {
+  background-color: #022F71;
+  color: #fff;
+}
+
+.fade-in-up {
+  animation: fadeInUp 700ms ease both;
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.pulse-dot {
+  animation: pulseDot 2s ease-in-out infinite;
+}
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.6); }
+}
+
+/* Category tint colors */
+.cat-Lending { color: #022F71; background: rgba(2,47,113,0.08); }
+.cat-Wellness { color: #049297; background: rgba(4,146,151,0.10); }
+.cat-Healthcare { color: #049297; background: rgba(160,200,214,0.35); }
+.cat-Insurance { color: #558CA1; background: rgba(85,140,161,0.14); }
