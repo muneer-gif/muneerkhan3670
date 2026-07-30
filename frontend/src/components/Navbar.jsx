@@ -14,7 +14,7 @@ const Navbar = () => {
             <img src={COMPANY_LOGO} alt="RevaSure logo" className="h-10 w-10 object-contain" />
             <div className="flex flex-col leading-tight">
               <Brand className="text-lg tracking-tight" />
-              <span className="text-[9px] text-[#049297] tracking-[0.18em] uppercase font-semibold">Connecting Care. Empowering Lives.</span>
+              <span className="text-[9px] text-[#049297] tracking-[0.18em] uppercase font-semibold">One Platform. Infinite Reach.</span>
             </div>
           </a>
 
