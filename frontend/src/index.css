@@ -221,6 +221,24 @@ html { scroll-behavior: smooth; }
   to { transform: rotate(360deg); }
 }
 
+/* Arrow nudge — continuously animates the ArrowUpRight to invite clicks */
+.arrow-nudge {
+  animation: arrowNudge 2.2s ease-in-out infinite;
+  transform-origin: center;
+  will-change: transform;
+}
+@keyframes arrowNudge {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(4px, -4px); }
+}
+.group:hover .arrow-nudge {
+  animation: arrowNudgeStrong 0.9s ease-in-out infinite;
+}
+@keyframes arrowNudgeStrong {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(6px, -6px) scale(1.08); }
+}
+
 /* Underline sweep for nav links (already exists but add subtle style) */
 .link-sweep::after {
   content: '';

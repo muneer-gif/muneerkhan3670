@@ -86,14 +86,16 @@ const MarketSection = () => {
             <button
               key={t.id}
               onClick={() => setSelected(t)}
-              className="text-left rounded-2xl bg-white border border-[#022F71]/10 p-6 card-hover fade-in-up"
+              className="group text-left rounded-2xl bg-white border border-[#022F71]/10 p-6 card-hover fade-in-up"
               style={{ animationDelay: `${idx * 60}ms` }}
             >
               <div className="flex items-center justify-between">
                 <span className={`text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full cat-${t.category.replace('*','')}`}>
                   {t.category}
                 </span>
-                <ArrowUpRight size={18} className="text-[#049297]" />
+                <span className="arrow-nudge inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#049297]/10 group-hover:bg-[#049297]/20 transition-colors">
+                  <ArrowUpRight size={18} className="text-[#049297]" strokeWidth={2} />
+                </span>
               </div>
 
               <h3 className="mt-4 text-xl font-semibold text-[#022F71]">{t.title}</h3>
@@ -211,8 +213,10 @@ const MarketSection = () => {
             </div>
 
             <div className="mt-5 p-4 rounded-xl bg-[#F7FAFC] border border-[#022F71]/10">
-              <div className="text-xs font-semibold uppercase tracking-wider text-[#049297]">Key drivers</div>
-              <div className="mt-1 text-sm text-[#22405e]">{selected.drivers}</div>
+              <div className="text-xs font-semibold uppercase tracking-wider text-[#049297]">
+                {selected.keyProducts ? 'Key Products' : 'Key Drivers'}
+              </div>
+              <div className="mt-1 text-sm text-[#22405e]">{selected.keyProducts || selected.drivers}</div>
             </div>
           </div>
         </div>
