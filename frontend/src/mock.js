@@ -174,13 +174,13 @@ export const ARCHITECTURE_STEPS = [
 ];
 
 export const COMPARISON = [
+  ['Higher Manpower Cost', 'Lowest Manpower cost'],
   ['Separate partnership for each category', 'Unified platform relationship'],
   ['Multiple vendor contacts', 'Centralised coordination'],
   ['Separate integrations', 'Single API or white-label integration'],
   ['Fragmented product workflows', 'Coordinated operating layer'],
   ['Multiple reporting processes', 'Unified reporting and reconciliation'],
   ['Limited product coverage', 'Lending, wellness, healthcare and insurance* access'],
-  ['Higher Manpower Cost', 'Lowest Manpower cost'],
 ];
 
 export const PARTNER_TYPES = ['Fintech', 'Corporate Business Correspondent', 'NGO', 'SHG', 'FPO', 'NBFC', 'Bank', 'Other'];

@@ -93,8 +93,8 @@ const MarketSection = () => {
                 <span className={`text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full cat-${t.category.replace('*','')}`}>
                   {t.category}
                 </span>
-                <span className="arrow-nudge inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#049297]/10 group-hover:bg-[#049297]/20 transition-colors">
-                  <ArrowUpRight size={18} className="text-[#049297]" strokeWidth={2} />
+                <span className="arrow-nudge inline-flex items-center justify-center w-9 h-9 rounded-full bg-[#022F71]/10 group-hover:bg-[#022F71]/20 transition-colors">
+                  <ArrowUpRight size={20} className="text-[#022F71]" strokeWidth={2.5} />
                 </span>
               </div>
 
