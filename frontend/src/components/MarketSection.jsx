@@ -1,4 +1,4 @@
-import React, { useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { MARKET_TILES, MARKET_FILTERS, INSURANCE_DISCLAIMER, RURAL_IMPACT } from '../mock';
 import { ArrowUpRight, X, Sprout, CheckCircle2 } from 'lucide-react';
 import Reveal from './Reveal';
@@ -8,6 +8,21 @@ const MarketSection = () => {
   const [filter, setFilter] = useState('All markets');
   const [selected, setSelected] = useState(null);
   const [metric, setMetric] = useState('Current market');
+
+  // ESC to close + body scroll lock while modal is open
+  useEffect(() => {
+    if (!selected) return;
+    const onKey = (e) => {
+      if (e.key === 'Escape') setSelected(null);
+    };
+    const prevOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = prevOverflow;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [selected]);
 
   const tiles = useMemo(() => {
     if (filter === 'All markets') return MARKET_TILES;
@@ -186,37 +201,43 @@ const MarketSection = () => {
       {/* Modal */}
       {selected && (
         <div
-          className="fixed inset-0 z-[60] bg-[#022F71]/40 backdrop-blur-sm flex items-center justify-center p-4"
+          className="fixed inset-0 z-[60] bg-[#022F71]/50 backdrop-blur-sm flex items-start sm:items-center justify-center p-3 sm:p-4 overflow-y-auto"
           onClick={() => setSelected(null)}
         >
           <div
-            className="bg-white rounded-2xl max-w-2xl w-full p-8 shadow-2xl relative border border-[#022F71]/10"
+            className="relative bg-white rounded-2xl max-w-2xl w-full shadow-2xl border border-[#022F71]/10 my-4 sm:my-6 max-h-[calc(100vh-2rem)] flex flex-col"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Floating close button — highly visible, generous tap target, always on top */}
             <button
               onClick={() => setSelected(null)}
-              className="absolute top-4 right-4 text-[#022F71]/60 hover:text-[#022F71]"
+              aria-label="Close details"
+              className="absolute -top-3 -right-3 sm:top-3 sm:right-3 z-10 w-10 h-10 rounded-full bg-white shadow-lg border border-[#022F71]/20 flex items-center justify-center text-[#022F71] hover:bg-[#022F71] hover:text-white hover:border-[#022F71] transition-colors"
             >
-              <X size={20} />
+              <X size={20} strokeWidth={2.5} />
             </button>
-            <span className={`text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full cat-${selected.category.replace('*','')}`}>
-              {selected.category}
-            </span>
-            <h3 className="mt-4 text-2xl md:text-3xl font-semibold text-[#022F71]">{selected.title}</h3>
-            <div className="text-sm text-[#049297] mt-1">{selected.label}</div>
 
-            <div className="mt-6 grid sm:grid-cols-2 gap-4">
-              <InfoBlock label="Current market size" value={selected.currentSize} />
-              <InfoBlock label="CAGR" value={selected.cagr} accent />
-              <InfoBlock label="Market basis" value={selected.basis} />
-              <InfoBlock label="Growth outlook" value={selected.outlook} />
-            </div>
+            {/* Scrollable content */}
+            <div className="overflow-y-auto p-5 sm:p-8 pr-6 sm:pr-10">
+              <span className={`text-[11px] font-semibold uppercase tracking-wider px-2.5 py-1 rounded-full cat-${selected.category.replace('*','')}`}>
+                {selected.category}
+              </span>
+              <h3 className="mt-4 text-2xl md:text-3xl font-semibold text-[#022F71] pr-8">{selected.title}</h3>
+              <div className="text-sm text-[#049297] mt-1">{selected.label}</div>
 
-            <div className="mt-5 p-4 rounded-xl bg-[#F7FAFC] border border-[#022F71]/10">
-              <div className="text-xs font-semibold uppercase tracking-wider text-[#049297]">
-                {selected.keyProducts ? 'Key Products' : 'Key Drivers'}
+              <div className="mt-6 grid sm:grid-cols-2 gap-3 sm:gap-4">
+                <InfoBlock label="Current market size" value={selected.currentSize} />
+                <InfoBlock label="CAGR" value={selected.cagr} accent />
+                <InfoBlock label="Market basis" value={selected.basis} />
+                <InfoBlock label="Growth outlook" value={selected.outlook} />
               </div>
-              <div className="mt-1 text-sm text-[#22405e]">{selected.keyProducts || selected.drivers}</div>
+
+              <div className="mt-5 p-4 rounded-xl bg-[#F7FAFC] border border-[#022F71]/10">
+                <div className="text-xs font-semibold uppercase tracking-wider text-[#049297]">
+                  {selected.keyProducts ? 'Key Products' : 'Key Drivers'}
+                </div>
+                <div className="mt-1 text-sm text-[#22405e]">{selected.keyProducts || selected.drivers}</div>
+              </div>
             </div>
           </div>
         </div>
