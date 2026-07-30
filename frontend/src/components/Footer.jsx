@@ -16,7 +16,7 @@ const Footer = () => {
               <div className="flex flex-col leading-tight">
                 <Brand variant="onDark" className="text-xl" />
                 <span className="text-[10px] text-[#A0C8D6] tracking-[0.18em] uppercase font-semibold">
-                  Connecting Care. Empowering Lives.
+                  One Platform. Infinite Reach.
                 </span>
               </div>
             </div>
@@ -24,9 +24,6 @@ const Footer = () => {
               <Brand variant="onDark" /> helps platforms expand their product offering through trusted technology,
               healthcare access and a simpler operating model.
             </p>
-            <div className="mt-6 text-sm font-semibold text-[#A0C8D6] uppercase tracking-widest">
-              One Platform. Infinite Reach.
-            </div>
           </div>
 
           <div>
