@@ -2,6 +2,7 @@ import React from 'react';
 import { MARKET_GAPS } from '../mock';
 import { AlertCircle, ArrowRight } from 'lucide-react';
 import Reveal from './Reveal';
+import Brand from './Brand';
 
 const MarketGap = () => {
   return (
@@ -25,9 +26,9 @@ const MarketGap = () => {
                 <ArrowRight size={18} className="text-[#049297]" />
               </div>
               <div>
-                <div className="text-sm font-semibold text-[#022F71]">RevaSure closes the gap</div>
+                <div className="text-sm font-semibold text-[#022F71]"><Brand /> closes the gap</div>
                 <div className="text-sm text-[#22405e] mt-1">
-                  RevaSure brings these requirements together through one platform relationship.
+                  <Brand /> brings these requirements together through one platform relationship.
                 </div>
               </div>
             </div>

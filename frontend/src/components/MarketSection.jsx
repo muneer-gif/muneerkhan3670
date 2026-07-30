@@ -1,7 +1,8 @@
 import React, { useMemo, useState } from 'react';
-import { MARKET_TILES, MARKET_FILTERS, INSURANCE_DISCLAIMER } from '../mock';
-import { ArrowUpRight, X } from 'lucide-react';
+import { MARKET_TILES, MARKET_FILTERS, INSURANCE_DISCLAIMER, RURAL_IMPACT } from '../mock';
+import { ArrowUpRight, X, Sprout, CheckCircle2 } from 'lucide-react';
 import Reveal from './Reveal';
+import Brand from './Brand';
 
 const MarketSection = () => {
   const [filter, setFilter] = useState('All markets');
@@ -32,10 +33,10 @@ const MarketSection = () => {
         <div className="max-w-3xl">
           <div className="text-xs font-medium tracking-widest uppercase text-[#049297]">Product Opportunity</div>
           <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl text-[#022F71] tracking-tight leading-tight">
-            India&rsquo;s growing markets, connected through <span className="text-gradient-brand">RevaSure</span>
+            India&rsquo;s growing markets, connected through <Brand />
           </h2>
           <p className="mt-5 text-lg text-[#22405e] leading-relaxed">
-            RevaSure helps fintechs, corporate business correspondents, NGOs, SHGs and FPOs expand
+            <Brand /> helps fintechs, corporate business correspondents, NGOs, SHGs and FPOs expand
             their product coverage across large, growing sectors.
           </p>
         </div>
@@ -122,6 +123,59 @@ const MarketSection = () => {
             </button>
           ))}
         </div>
+
+        {/* Rural & Social Impact — feature card */}
+        <Reveal delay={80}>
+        <div className="mt-8 rounded-2xl overflow-hidden border border-[#022F71]/15 bg-white shadow-sm">
+          <div className="grid lg:grid-cols-5 gap-0">
+            {/* Left: content */}
+            <div className="lg:col-span-3 p-7 lg:p-10">
+              <div className="inline-flex items-center gap-2 rounded-full bg-[#049297]/10 border border-[#049297]/25 px-3 py-1">
+                <Sprout size={14} className="text-[#049297]" strokeWidth={1.8} />
+                <span className="text-[11px] font-semibold uppercase tracking-widest text-[#049297]">
+                  {RURAL_IMPACT.eyebrow}
+                </span>
+              </div>
+              <h3 className="mt-4 text-2xl md:text-3xl font-semibold text-[#022F71] leading-tight">
+                {RURAL_IMPACT.title}
+              </h3>
+              <p className="mt-3 text-[15px] text-[#22405e] leading-relaxed max-w-xl">
+                Indian insurers face mandatory rural and social sector obligations. <Brand /> gives
+                you a ready-made, execution-ready path to meet them profitably.
+              </p>
+
+              <ul className="mt-5 space-y-3">
+                {RURAL_IMPACT.bullets.map((b) => (
+                  <li key={b} className="flex items-start gap-3">
+                    <div className="w-6 h-6 rounded-full bg-[#049297]/12 flex items-center justify-center flex-shrink-0 mt-0.5">
+                      <CheckCircle2 size={14} className="text-[#049297]" strokeWidth={2} />
+                    </div>
+                    <span className="text-sm text-[#22405e] leading-snug">{b}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Right: stat panel */}
+            <div className="lg:col-span-2 relative p-7 lg:p-10 flex flex-col justify-center"
+                 style={{background: 'linear-gradient(135deg, #022F71 0%, #043a7e 55%, #049297 100%)'}}>
+              <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" />
+              <div className="relative">
+                <div className="text-xs font-semibold uppercase tracking-[0.18em] text-[#A0C8D6]">
+                  Market Potential
+                </div>
+                <div className="mt-3 text-5xl md:text-6xl font-bold text-white tracking-tight">
+                  {RURAL_IMPACT.stat.value}
+                </div>
+                <p className="mt-3 text-sm text-white/90 leading-relaxed max-w-xs">
+                  {RURAL_IMPACT.stat.label}
+                </p>
+                <div className="mt-6 h-1 w-16 rounded-full bg-[#A0C8D6]/70" />
+              </div>
+            </div>
+          </div>
+        </div>
+        </Reveal>
 
         {/* Insurance disclaimer */}
         <p className="mt-6 text-xs text-[#22405e] italic">{INSURANCE_DISCLAIMER}</p>

@@ -3,6 +3,8 @@ import * as LucideIcons from 'lucide-react';
 import { ARCHITECTURE_STEPS } from '../mock';
 import { ChevronRight } from 'lucide-react';
 import Reveal from './Reveal';
+import Brand from './Brand';
+import { withBrand } from '../utils/withBrand';
 
 const Architecture = () => {
   const [active, setActive] = useState(2);
@@ -16,7 +18,7 @@ const Architecture = () => {
         <div className="max-w-3xl">
           <div className="text-xs font-medium tracking-widest uppercase text-[#049297]">Solution Architecture</div>
           <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl text-[#022F71] tracking-tight leading-tight">
-            How RevaSure <span className="text-gradient-brand">connects the flow</span>
+            How <Brand /> <span className="text-gradient-brand">connects the flow</span>
           </h2>
           <p className="mt-5 text-lg text-[#22405e] leading-relaxed">
             From your existing platform to a coordinated product ecosystem &mdash; in five clear steps.
@@ -73,7 +75,7 @@ const Architecture = () => {
                     <div className="text-2xl md:text-3xl font-semibold text-[#022F71]">{step.title}</div>
                   </div>
                 </div>
-                <p className="mt-6 text-[#22405e] leading-relaxed">{step.body}</p>
+                <p className="mt-6 text-[#22405e] leading-relaxed">{withBrand(step.body)}</p>
 
                 {step.items.length > 0 && (
                   <div className="mt-6 grid sm:grid-cols-2 gap-2.5">

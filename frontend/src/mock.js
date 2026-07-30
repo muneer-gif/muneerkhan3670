@@ -173,3 +173,19 @@ export const PARTNER_TYPES = ['Fintech', 'Corporate Business Correspondent', 'NG
 export const PRODUCT_CATEGORIES = ['Lending', 'Wellness', 'Healthcare', 'Insurance*', 'Multiple categories', 'None yet'];
 
 export const INSURANCE_DISCLAIMER = '*Insurance products are subject to applicable regulatory requirements and the processes of authorised product partners.';
+
+export const RURAL_IMPACT = {
+  eyebrow: 'A Built-In Advantage for Insurers',
+  title: 'Rural & Social Impact',
+  description:
+    'Indian insurers face mandatory rural and social sector obligations. RevaSure gives you a ready-made, execution-ready path to meet them profitably.',
+  bullets: [
+    'Vast rural & semi-urban distribution network: NGOs, SHGs, FPOs and RMFs.',
+    'Consulting + distribution execution to design products that actually fit rural livelihoods.',
+    'Meet regulatory obligations while building profitable, long-term rural relationships.',
+  ],
+  stat: {
+    value: '$70B+',
+    label: 'Projected wellness & protection market across rural and semi-urban India.',
+  },
+};

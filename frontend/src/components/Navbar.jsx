@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X, ArrowRight } from 'lucide-react';
 import { NAV_LINKS, COMPANY_LOGO } from '../mock';
+import Brand from './Brand';
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -12,7 +13,7 @@ const Navbar = () => {
           <a href="#top" className="flex items-center gap-2.5">
             <img src={COMPANY_LOGO} alt="RevaSure logo" className="h-10 w-10 object-contain" />
             <div className="flex flex-col leading-tight">
-              <span className="text-[#022F71] font-bold text-lg tracking-tight">RevaSure</span>
+              <Brand className="text-lg tracking-tight" />
               <span className="text-[9px] text-[#049297] tracking-[0.18em] uppercase font-semibold">Connecting Care. Empowering Lives.</span>
             </div>
           </a>

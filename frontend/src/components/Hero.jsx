@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { ArrowRight, Sparkles, ShieldCheck, HeartPulse, Landmark } from 'lucide-react';
+import Brand from './Brand';
 
 const Hero = () => {
   return (
@@ -15,12 +16,12 @@ const Hero = () => {
           <div className="lg:col-span-7 fade-in-up">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#049297]/25 bg-white/80 px-4 py-1.5 text-xs font-medium text-[#022F71] shadow-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-[#049297] pulse-dot" />
-              Trust <span className="text-[#049297]">&bull;</span> Technology <span className="text-[#049297]">&bull;</span> Healthcare <span className="text-[#049297]">&bull;</span> Reach
+              Trust <span className="text-[#049297]">&bull;</span> Technology <span className="text-[#049297]">&bull;</span> Reach
             </div>
 
             <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-[#022F71]">
               Your platform has reach. <br />
-              <span className="text-gradient-brand">RevSure</span> helps you monetise better.
+              <Brand /> helps you monetise better.
             </h1>
 
             <p className="mt-6 text-lg text-[#22405e] max-w-2xl leading-relaxed">

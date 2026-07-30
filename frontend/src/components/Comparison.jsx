@@ -2,6 +2,7 @@ import React from 'react';
 import { COMPARISON } from '../mock';
 import { AlertCircle, Check } from 'lucide-react';
 import Reveal from './Reveal';
+import Brand from './Brand';
 
 const Comparison = () => {
   return (
@@ -9,7 +10,7 @@ const Comparison = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-10">
         <Reveal>
         <div className="max-w-3xl">
-          <div className="text-xs font-medium tracking-widest uppercase text-[#049297]">Traditional vs RevaSure</div>
+          <div className="text-xs font-medium tracking-widest uppercase text-[#049297]">Traditional vs <Brand className="text-[11px]" /></div>
           <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl text-[#022F71] tracking-tight leading-tight">
             A simpler way to <span className="text-gradient-brand">expand your platform</span>
           </h2>
@@ -24,7 +25,7 @@ const Comparison = () => {
               <div className="text-lg font-semibold text-[#22405e] mt-1">The Existing Way</div>
             </div>
             <div className="p-6" style={{background: 'linear-gradient(135deg, rgba(2,47,113,0.04), rgba(4,146,151,0.06))'}}>
-              <div className="text-xs uppercase tracking-widest text-[#049297]">RevaSure model</div>
+              <div className="text-xs uppercase tracking-widest text-[#049297] font-semibold"><Brand className="text-[11px]" /> model</div>
               <div className="text-lg font-semibold text-[#022F71] mt-1">The unified way</div>
             </div>
           </div>

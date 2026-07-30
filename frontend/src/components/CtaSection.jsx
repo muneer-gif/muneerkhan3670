@@ -13,6 +13,7 @@ import {
 } from './ui/select';
 import { useToast } from '../hooks/use-toast';
 import Reveal from './Reveal';
+import Brand from './Brand';
 
 const CtaSection = () => {
   const { toast } = useToast();
@@ -49,11 +50,11 @@ const CtaSection = () => {
         <Reveal variant="left">
         <div className="text-white">
           <div className="text-xs font-medium tracking-widest uppercase text-[#A0C8D6]">Partnership</div>
-          <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl tracking-tight leading-tight">
-            Unlock value of your network with RevaSure Partnership
+          <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl tracking-tight leading-tight text-white">
+            Unlock value of your network with <Brand variant="onDark" /> Partnership
           </h2>
-          <p className="mt-5 text-lg text-white/80 leading-relaxed max-w-lg">
-            Connect with RevaSure to explore product categories, integration options and
+          <p className="mt-5 text-lg text-white/85 leading-relaxed max-w-lg">
+            Connect with <Brand variant="onDark" /> to explore product categories, integration options and
             partnership opportunities.
           </p>
 
@@ -84,7 +85,7 @@ const CtaSection = () => {
               </div>
               <h3 className="mt-5 text-2xl font-semibold text-[#022F71]">Thank you</h3>
               <p className="mt-2 text-sm text-[#22405e] max-w-sm mx-auto">
-                The RevaSure partnerships team will contact you after reviewing your requirements.
+                The <Brand /> partnerships team will contact you after reviewing your requirements.
               </p>
               <button
                 onClick={() => { setSubmitted(false); setForm({name:'',company:'',email:'',mobile:'',partnerType:'',productCategories:'',volume:'',message:''}); }}

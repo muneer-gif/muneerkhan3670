@@ -1,6 +1,7 @@
 import React from 'react';
 import { Linkedin, Twitter, Mail } from 'lucide-react';
 import { COMPANY_LOGO, INSURANCE_DISCLAIMER } from '../mock';
+import Brand from './Brand';
 
 const Footer = () => {
   return (
@@ -13,14 +14,14 @@ const Footer = () => {
                 <img src={COMPANY_LOGO} alt="RevaSure" className="w-full h-full object-contain" />
               </div>
               <div className="flex flex-col leading-tight">
-                <span className="text-xl font-bold">RevaSure</span>
+                <Brand variant="onDark" className="text-xl" />
                 <span className="text-[10px] text-[#A0C8D6] tracking-[0.18em] uppercase font-semibold">
                   Connecting Care. Empowering Lives.
                 </span>
               </div>
             </div>
             <p className="mt-4 text-white/85 max-w-md text-sm leading-relaxed">
-              RevaSure helps platforms expand their product offering through trusted technology,
+              <Brand variant="onDark" /> helps platforms expand their product offering through trusted technology,
               healthcare access and a simpler operating model.
             </p>
             <div className="mt-6 text-sm font-semibold text-[#A0C8D6] uppercase tracking-widest">
