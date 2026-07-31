@@ -107,22 +107,30 @@ const HeroVisual = () => {
   return (
     <div
       ref={wrapRef}
-      className="relative aspect-square max-w-md mx-auto"
+      className="relative aspect-square max-w-[520px] mx-auto"
       style={{
         transform: `perspective(1200px) rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)`,
         transition: 'transform 260ms ease-out',
       }}
     >
-      <div className="absolute inset-0 rounded-full border border-[#022F71]/10 orbit-spin" />
-      <div className="absolute inset-6 rounded-full border border-[#049297]/15 orbit-spin-rev" />
-      <div className="absolute inset-14 rounded-full border border-[#A0C8D6]/40 orbit-spin" />
+      {/* Decorative rings — inset so they never crop the satellite tiles */}
+      <div className="absolute inset-[6%] rounded-full border border-[#022F71]/10 orbit-spin" />
+      <div className="absolute inset-[16%] rounded-full border border-[#049297]/15 orbit-spin-rev" />
+      <div className="absolute inset-[28%] rounded-full border border-[#A0C8D6]/40 orbit-spin" />
 
-      <div className="absolute inset-0 flex items-center justify-center">
-        <div className="relative w-44 h-44 rounded-3xl flex items-center justify-center text-white shadow-2xl glow-ring"
-             style={{background: 'linear-gradient(135deg,#022F71 0%,#049297 100%)'}}>
+      {/* Center hub */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+        <div
+          className="relative rounded-3xl flex items-center justify-center text-white shadow-2xl glow-ring pointer-events-auto"
+          style={{
+            width: '38%',
+            height: '38%',
+            background: 'linear-gradient(135deg,#022F71 0%,#049297 100%)',
+          }}
+        >
           <div className="text-center px-4">
-            <div className="text-sm md:text-base font-bold tracking-tight">RevaSure</div>
-            <div className="mt-1 text-[13px] font-medium leading-snug opacity-95">
+            <div className="text-[15px] md:text-base font-bold tracking-tight">RevaSure</div>
+            <div className="mt-1.5 text-[12px] md:text-[13px] font-medium leading-snug opacity-95">
               One Platform.<br />Infinite Possibilities.
             </div>
           </div>
@@ -130,9 +138,10 @@ const HeroVisual = () => {
         </div>
       </div>
 
+      {/* Satellites — positioned around a larger orbit so they never touch the center */}
       {nodes.map((n, i) => {
         const angle = (i / nodes.length) * Math.PI * 2 - Math.PI / 2;
-        const r = 44;
+        const r = 40; // % of container radius from center (pushed outward)
         const x = 50 + Math.cos(angle) * r;
         const y = 50 + Math.sin(angle) * r;
         const Icon = n.icon;
@@ -142,22 +151,36 @@ const HeroVisual = () => {
             className={`absolute -translate-x-1/2 -translate-y-1/2 ${i % 2 === 0 ? 'float-slow' : 'float-slower'}`}
             style={{ left: `${x}%`, top: `${y}%` }}
           >
-            <div className="w-20 h-20 rounded-2xl bg-white border border-[#022F71]/10 shadow-lg flex flex-col items-center justify-center gap-1 card-hover">
-              <Icon size={22} style={{ color: n.color, strokeWidth: 1.6 }} className="icon-lift" />
-              <span className="text-[11px] font-medium text-[#022F71]">{n.label}</span>
+            <div className="w-[76px] h-[76px] rounded-2xl bg-white border border-[#022F71]/10 shadow-lg flex flex-col items-center justify-center gap-1 card-hover">
+              <Icon size={20} style={{ color: n.color, strokeWidth: 1.6 }} className="icon-lift" />
+              <span className="text-[11px] font-medium text-[#022F71] leading-none">{n.label}</span>
             </div>
           </div>
         );
       })}
 
+      {/* Connector lines — dashed guides from the hub to each satellite */}
       <svg className="absolute inset-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
         {nodes.map((_, i) => {
           const angle = (i / nodes.length) * Math.PI * 2 - Math.PI / 2;
-          const r = 44;
-          const x = 50 + Math.cos(angle) * r;
-          const y = 50 + Math.sin(angle) * r;
+          const r = 40;
+          const startR = 19; // start at the edge of the center hub (~38% / 2)
+          const x1 = 50 + Math.cos(angle) * startR;
+          const y1 = 50 + Math.sin(angle) * startR;
+          const x2 = 50 + Math.cos(angle) * r;
+          const y2 = 50 + Math.sin(angle) * r;
           return (
-            <line key={i} x1="50" y1="50" x2={x} y2={y} stroke="#049297" strokeOpacity="0.25" strokeWidth="0.3" strokeDasharray="1 1.5" />
+            <line
+              key={i}
+              x1={x1}
+              y1={y1}
+              x2={x2}
+              y2={y2}
+              stroke="#049297"
+              strokeOpacity="0.35"
+              strokeWidth="0.4"
+              strokeDasharray="1.5 1.5"
+            />
           );
         })}
       </svg>

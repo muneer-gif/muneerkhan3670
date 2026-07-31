@@ -102,70 +102,38 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Verify mobile modal close button bug fix on RevaSure landing page. User reported: 'When I open this website on a Mobile phone, the page which opens after clicking on the top right side arrow covers entire screen; the page close button shown on the top right of the modal is almost invisible, hence the user needs to go out of the website and click on another product top right arrow to access details about other products. I need the page to fit in a way that the user can see the close button easily and can go back to the website without needing to close it.'"
+user_problem_statement: "Verify hero orbital visual layout bug fix on RevaSure landing page. User reported: 'This animated image on the top of right side of the website isn't constructed properly. Correct alignment and make it more presentable.' Reference: the hero orbital visual in the right column of the hero section showed the central RevaSure tile very close to (or visually touching) the Healthcare satellite tile, and overall the satellite tiles felt cramped around the centre."
 
 frontend:
-  - task: "Fix modal close button visibility and accessibility on mobile"
+  - task: "Fix hero orbital visual layout - satellite spacing and alignment"
     implemented: true
-    working: true
-    file: "src/components/MarketSection.jsx"
+    working: false
+    file: "src/components/Hero.jsx"
     stuck_count: 0
     priority: "high"
     needs_retesting: false
     status_history:
       - working: "NA"
         agent: "main"
-        comment: "Fixed product tile detail modal in Product Opportunity section: 1) Close button now prominent floating chip (40x40 tap target, white bg, subtle border, dark navy X icon) positioned at -top-3 -right-3 on mobile (overhanging modal corner) and top-3 right-3 on sm+ viewports, z-10 to stay above content. 2) Modal scrollable internally with max-h-[calc(100vh-2rem)] and overflow-y-auto. 3) Modal padding reduced on mobile (p-5 sm:p-8). 4) Outer overlay uses items-start sm:items-center so modal starts near top on mobile with my-4 margin. 5) Added ESC-key-to-close and body scroll lock. 6) Heading has pr-8 to avoid close button overlap."
-      - working: true
+        comment: "Fixed hero orbital visual (right column of hero section): 1) Container widened from max-w-md (448px) to max-w-[520px] so satellites have room. 2) Centre RevaSure hub now sized proportionally (38% of container width/height, ~198px on desktop) instead of fixed w-44 h-44 - scales with container. 3) Satellite tiles resized to 76x76px (from 80) and repositioned at orbit radius r=40% (was 44%) - with smaller/proportional centre yields larger visual gap between centre and satellites. 4) Decorative rings inset (6%/16%/28%) so they never crop into satellites. 5) Dashed connector SVG lines now start at edge of centre hub (radius ~19%) instead of exact centre - lines visually connect hub-to-satellite. 6) Order retained: Lending (top), Wellness (right), Insurance (bottom), Healthcare (left). 7) Mouse-tilt clamped to ±6° and resets on scroll (no upside-down flips)."
+      - working: false
         agent: "testing"
-        comment: "VERIFIED - Comprehensive testing completed on mobile (390x844, 375x667) and desktop (1440x900) viewports. Mobile 390x844: Close button clearly visible as white circular chip with X icon, adequate 40x40px tap target, positioned correctly at top-right corner overhanging modal. Successfully closes modal on click. Can switch between tiles (Wellness→Healthcare→AI in Healthcare) without leaving page. Modal content scrollable, close button remains visible during scroll. ESC key closes modal. Body scroll locked (overflow:hidden) while modal open. Mobile 375x667: Close button visible at x=334, y=17, not clipped, modal content scrollable. Desktop 1440x900: Modal perfectly centered (0px offset), close button at top-right corner (x=619px, y=13px relative to modal), content renders clearly with 4 info blocks and Key Products section. BUG FIX SUCCESSFUL - Close button now easily visible and reachable on mobile, users can close modal and switch between tiles without leaving site."
-
-  - task: "Fix text contrast issues across all sections"
-    implemented: true
-    working: true
-    file: "src/components/*.jsx"
-    stuck_count: 0
-    priority: "high"
-    needs_retesting: false
-    status_history:
-      - working: "NA"
-        agent: "main"
-        comment: "Replaced Royal Blue #558CA1 (low contrast ~3:1) with Digital Teal #049297 or Deep Trust Blue #022F71 in: Navbar tagline, Market tile subtitles, small uppercase labels, Architecture step labels, Comparison table header, Comparison X icons, MarketGap AlertCircle icons, CTA form field labels. Removed opacity dilution from body/label text. Increased footer text from 60% to 80% opacity."
-      - working: true
-        agent: "testing"
-        comment: "VERIFIED - Comprehensive testing completed at desktop (1440x900) and mobile (390x844) viewports. All contrast issues resolved. Color verification: Navbar tagline rgb(4,146,151)=#049297, Nav links rgb(2,47,113)=#022F71, Hero text rgb(2,47,113) and rgb(34,64,94) solid no opacity, Market labels rgb(4,146,151), Body text rgb(34,64,94) solid, Modal labels rgb(4,146,151), Comparison text rgb(34,64,94), CTA labels rgb(2,47,113), Footer text rgba(255,255,255,0.8). All text is now clearly readable with sufficient contrast (WCAG AA compliant). No residual contrast issues found."
-
-  - task: "Verify interactive features still work"
-    implemented: true
-    working: true
-    file: "src/components/*.jsx"
-    stuck_count: 0
-    priority: "high"
-    needs_retesting: false
-    status_history:
-      - working: "NA"
-        agent: "main"
-        comment: "Need to verify that contrast fixes did not break any interactive functionality."
-      - working: true
-        agent: "testing"
-        comment: "VERIFIED - All interactive features working correctly: Filter chips (All markets, Lending, Wellness, Healthcare, Insurance) filter tiles correctly. Metric toggle (Current market, CAGR, Expected market) switches bar values correctly. Market tile modal opens with correct data and closes properly. Architecture step buttons (Steps 1-5) switch detail panel correctly. CTA form submission with Name/Company/Email shows thank you confirmation. Missing required fields shows validation toast. Mobile menu opens/closes correctly. No regressions found."
+        comment: "PARTIALLY FIXED - Comprehensive testing across Desktop (1440x900), Tablet (1024x768), and Mobile (390x844) viewports. DESKTOP: ✓ All satellites have clear gaps from center (minimum 27.3px). Center tile properly centered (0px offset), correctly sized at 38% of container (181px). Satellites positioned at 12/3/6/9 o'clock. Scroll behavior working - tilt resets correctly. Mouse parallax tilt clamped to ±6°. Dashed connector lines visible. TABLET: ⚠ Healthcare satellite has small 6.2px gap (acceptable but tight). Other satellites have clear gaps (17-80px). Center tile properly centered and sized. MOBILE (390x844): ✗ CRITICAL ISSUE - Healthcare satellite OVERLAPPING center tile with only 0.4px gap! Bounding boxes overlap. Lending also has small 12.3px gap. Wellness and Insurance have clear gaps (74px, 66px). The proportional center (38% = 130px on 342px container) combined with fixed 76px satellites and 40% orbit radius causes insufficient spacing on mobile. All satellite labels readable. ISSUE: The bug fix successfully improved desktop/tablet spacing but mobile viewport still has the original reported problem - Healthcare satellite touching/overlapping center tile. Need to increase orbit radius or reduce satellite/center sizes on mobile viewports."
 
 metadata:
   created_by: "testing_agent"
-  version: "1.1"
-  test_sequence: 2
+  version: "1.2"
+  test_sequence: 3
   run_ui: true
-  last_tested: "2026-07-29"
+  last_tested: "2026-07-31"
 
 test_plan:
   current_focus:
-    - "All testing completed"
+    - "Fix hero orbital visual mobile spacing issue"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
 
 agent_communication:
   - agent: "testing"
-    message: "Contrast bug fix verification completed successfully. All 11 sections of the landing page tested at both desktop and mobile viewports. Color contrast improvements verified throughout: Navbar, Hero, Market Section (including modal), Market Gap, Value Proposition, Architecture, Comparison, Trust, CTA, and Footer. All previously low-contrast text (Royal Blue #558CA1) has been replaced with darker colors (Digital Teal #049297 or Deep Trust Blue #022F71). Opacity dilution removed from body text. Footer opacity increased to 80%. All interactive features (filters, metric toggle, modals, architecture steps, form submission) working correctly with no regressions. The contrast bug is FULLY FIXED - no residual issues found. Ready for main agent to summarize and finish."
-  - agent: "testing"
-    message: "Mobile modal close button bug fix verification completed successfully. Tested on mobile viewports (390x844, 375x667) and desktop (1440x900). The close button is now highly visible and accessible on mobile devices: 40x40px tap target, white circular chip with dark X icon, positioned to overhang modal corner (-top-3 -right-3 on mobile). Users can now easily close modals and switch between product tiles without leaving the website. Modal scrolling works correctly with close button always visible. ESC key and body scroll lock functioning as expected. Desktop rendering also verified - modal centered, close button at top-right corner, content displays clearly. The mobile modal close button bug is FULLY FIXED - all requirements met."
+    message: "Hero orbital visual layout bug fix verification completed. Tested across Desktop (1440x900), Tablet (1024x768), and Mobile (390x844) viewports. RESULTS: Desktop and Tablet are working well with clear gaps between center and satellites. However, CRITICAL ISSUE on Mobile (390x844): Healthcare satellite is overlapping/touching the center RevaSure tile with only 0.4px gap. The current implementation uses proportional center sizing (38% of container) with fixed 76px satellites at 40% orbit radius. On mobile's 342px container, this creates insufficient spacing. RECOMMENDATION: Implement responsive adjustments for mobile - either increase orbit radius to 44-45% on mobile, reduce satellite size to 68-70px on mobile, or reduce center size to 34-36% on mobile. The fix successfully improved desktop/tablet but the original user-reported issue (Healthcare touching center) persists on mobile viewport."
