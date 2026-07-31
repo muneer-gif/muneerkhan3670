@@ -42,7 +42,7 @@ const Hero = () => {
                 Partner with RevaSure <ArrowRight size={16} />
               </a>
               <a href="#markets" className="btn-outline-brand rounded-lg px-6 py-3 text-sm font-medium inline-flex items-center gap-2">
-                Explore market opportunities
+                Explore Opportunities
               </a>
             </div>
           </div>

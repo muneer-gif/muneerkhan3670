@@ -155,13 +155,13 @@ export const ARCHITECTURE_STEPS = [
     icon: 'Boxes',
     title: 'RevaSure Ecosystem',
     body: 'Customers can access:',
-    items: ['Personal loans', 'Business loans', 'Gold loans', 'Wellness products', 'Healthcare products', 'AI in Healthcare', 'Retail insurance*', 'Micro-insurance*'],
+    items: ['Personal loans', 'Business loans', 'Gold loans', 'Wellness products', 'Healthcare products', 'AI in Healthcare', 'Retail insurance*', 'Consulting Services', 'Micro-insurance*'],
   },
   {
     id: 4,
     icon: 'Cog',
     title: 'Operations layer',
-    body: 'RevaSure connects your ecosystem to coordinate every workflow\u2014taking care of everything from products to payments.',
+    body: 'RevaSure connects with your ecosystem to coordinate every workflow - taking care of everything from products to payments.',
     items: [],
   },
   {
@@ -175,7 +175,7 @@ export const ARCHITECTURE_STEPS = [
 
 export const COMPARISON = [
   ['Higher Manpower Cost', 'Lowest Manpower cost'],
-  ['Separate partnership for each category', 'Unified platform relationship'],
+  ['Separate partnership for each category', 'Single platform. Single relationship.'],
   ['Multiple vendor contacts', 'Centralised coordination'],
   ['Separate integrations', 'Single API or white-label integration'],
   ['Fragmented product workflows', 'Coordinated operating layer'],

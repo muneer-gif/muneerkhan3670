@@ -10,7 +10,7 @@ const MarketGap = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-14 items-start">
         <Reveal variant="left">
         <div>
-          <div className="text-xs font-medium tracking-widest uppercase text-[#049297]">The Market Gap</div>
+          <div className="text-xs font-medium tracking-widest uppercase text-[#049297]">Platform Dynamics</div>
           <h2 className="mt-3 text-3xl md:text-4xl lg:text-5xl text-[#022F71] tracking-tight leading-tight">
             The opportunity is clear. <br />
             <span className="text-gradient-brand">The operating model is not.</span>
