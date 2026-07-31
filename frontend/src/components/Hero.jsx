@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import { ArrowRight, Sparkles, ShieldCheck, HeartPulse, Landmark } from 'lucide-react';
 import Brand from './Brand';
 
@@ -58,7 +58,6 @@ const Hero = () => {
 
 const HeroVisual = () => {
   // Order: Lending (top), Wellness (right), Insurance (bottom), Healthcare (left)
-  // (Healthcare and Insurance swapped so Insurance is downplayed on the axis edge)
   const nodes = [
     { icon: Landmark, label: 'Lending', color: '#022F71' },
     { icon: HeartPulse, label: 'Wellness', color: '#049297' },
@@ -66,54 +65,9 @@ const HeroVisual = () => {
     { icon: Sparkles, label: 'Healthcare', color: '#049297' },
   ];
 
-  const wrapRef = useRef(null);
-  const [tilt, setTilt] = useState({ x: 0, y: 0 });
-
-  useEffect(() => {
-    const el = wrapRef.current;
-    if (!el) return;
-    const clamp = (v, min, max) => Math.max(min, Math.min(max, v));
-    const handleMove = (e) => {
-      const rect = el.getBoundingClientRect();
-      // If mouse is far outside the visual, gently ease back to neutral
-      const outside =
-        e.clientX < rect.left - 100 ||
-        e.clientX > rect.right + 100 ||
-        e.clientY < rect.top - 100 ||
-        e.clientY > rect.bottom + 100;
-      if (outside) {
-        setTilt({ x: 0, y: 0 });
-        return;
-      }
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      const dx = (e.clientX - cx) / rect.width;
-      const dy = (e.clientY - cy) / rect.height;
-      // Clamp so the tile never flips upside down while scrolling
-      setTilt({ x: clamp(dx * 6, -6, 6), y: clamp(dy * -6, -6, 6) });
-    };
-    const handleLeave = () => setTilt({ x: 0, y: 0 });
-    const handleScroll = () => setTilt({ x: 0, y: 0 });
-    window.addEventListener('mousemove', handleMove);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    el.addEventListener('mouseleave', handleLeave);
-    return () => {
-      window.removeEventListener('mousemove', handleMove);
-      window.removeEventListener('scroll', handleScroll);
-      el.removeEventListener('mouseleave', handleLeave);
-    };
-  }, []);
-
   return (
-    <div
-      ref={wrapRef}
-      className="relative aspect-square max-w-[520px] mx-auto"
-      style={{
-        transform: `perspective(1200px) rotateY(${tilt.x}deg) rotateX(${tilt.y}deg)`,
-        transition: 'transform 260ms ease-out',
-      }}
-    >
-      {/* Decorative rings — inset so they never crop the satellite tiles */}
+    <div className="relative aspect-square w-full max-w-[520px] mx-auto">
+      {/* Decorative rings */}
       <div className="absolute inset-[6%] rounded-full border border-[#022F71]/10 orbit-spin" />
       <div className="absolute inset-[16%] rounded-full border border-[#049297]/15 orbit-spin-rev" />
       <div className="absolute inset-[28%] rounded-full border border-[#A0C8D6]/40 orbit-spin" />
@@ -146,7 +100,7 @@ const HeroVisual = () => {
         return (
           <div
             key={n.label}
-            className={`absolute -translate-x-1/2 -translate-y-1/2 ${i % 2 === 0 ? 'float-slow' : 'float-slower'}`}
+            className="absolute -translate-x-1/2 -translate-y-1/2"
             style={{ left: `${x}%`, top: `${y}%` }}
           >
             <div className="w-[64px] h-[64px] sm:w-[72px] sm:h-[72px] lg:w-[80px] lg:h-[80px] rounded-2xl bg-white border border-[#022F71]/10 shadow-lg flex flex-col items-center justify-center gap-1 card-hover">
