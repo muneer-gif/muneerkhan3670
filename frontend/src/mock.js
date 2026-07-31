@@ -22,7 +22,7 @@ export const MARKET_TILES = [
     cagrNumeric: 5.3,
     outlook: 'Forecast to reach \u20b921.6 L Cr by 2034',
     outlookNumeric: 21.6,
-    keyProducts: 'Dietary Supplements & Nutrition, Healthcare Devices & Monitoring Tools, Family & Specialised Care, Curated Wellness Kits',
+    keyProducts: 'Dietary Supplements & Nutrition, Healthcare Devices & Monitoring Tools, Family & Specialised Care, Curated Wellness Kits etc.',
   },
   {
     id: 'healthcare',
@@ -36,7 +36,7 @@ export const MARKET_TILES = [
     cagrNumeric: 20,
     outlook: 'Expected to surpass \u20b953.6 L Cr within the next few years',
     outlookNumeric: 53.6,
-    keyProducts: 'Daily Hospital Cash, Personal Accident, Critical Illness, Dengue/Malaria Cover, Local Regional Language Doctor on Call, Free Medical Test',
+    keyProducts: 'Daily Hospital Cash, Personal Accident, Critical Illness, Dengue/Malaria Cover, Local Regional Language Doctor on Call, Free Medical Test etc.',
   },
   {
     id: 'ai-healthcare',
@@ -50,7 +50,7 @@ export const MARKET_TILES = [
     cagrNumeric: 30.9,
     outlook: 'On track to \u20b910.23 L Cr (USD 106.97B) by 2033',
     outlookNumeric: 10.23,
-    keyProducts: 'AI Face Vitals Scan, Health Profile & Trends, AI Health Coach, Nutrition & Food Scanner and many more...',
+    keyProducts: 'AI Face Vitals Scan, Health Profile & Trends, AI Health Coach, Nutrition & Food Scanner etc.',
   },
   {
     id: 'personal-loans',
@@ -106,7 +106,7 @@ export const MARKET_TILES = [
     cagrNumeric: 12.4,
     outlook: 'Supported by the structural goal of "Insurance for All by 2047"',
     outlookNumeric: 22,
-    keyProducts: 'Bike, Car, Health and Life Insurance',
+    keyProducts: 'Bike, Car, Health and Life Insurance etc.',
   },
   {
     id: 'micro-insurance',
@@ -120,11 +120,11 @@ export const MARKET_TILES = [
     cagrNumeric: 15,
     outlook: 'Projected to exceed \u20b914,500 Cr by 2034',
     outlookNumeric: 1.45,
-    keyProducts: 'Personal Accident, Daily Hospital Cash, Cyber Protect, Climate Protect and many more',
+    keyProducts: 'Personal Accident, Daily Hospital Cash, Cyber Protect, Climate Protect etc.',
   },
 ];
 
-export const MARKET_FILTERS = ['All markets', 'Lending', 'Wellness', 'Healthcare', 'Insurance*'];
+export const MARKET_FILTERS = ['Explore Opportunities', 'Lending', 'Wellness', 'Healthcare', 'Insurance*'];
 
 export const MARKET_GAPS = [
   'Separate partnerships for each product',
@@ -153,7 +153,7 @@ export const ARCHITECTURE_STEPS = [
   {
     id: 3,
     icon: 'Boxes',
-    title: 'Product ecosystem',
+    title: 'RevaSure Ecosystem',
     body: 'Customers can access:',
     items: ['Personal loans', 'Business loans', 'Gold loans', 'Wellness products', 'Healthcare products', 'AI in Healthcare', 'Retail insurance*', 'Micro-insurance*'],
   },
@@ -161,7 +161,7 @@ export const ARCHITECTURE_STEPS = [
     id: 4,
     icon: 'Cog',
     title: 'Operations layer',
-    body: 'RevaSure coordinates relevant product and fulfilment workflows across the connected partner ecosystem.',
+    body: 'RevaSure connects your ecosystem to coordinate every workflow\u2014taking care of everything from products to payments.',
     items: [],
   },
   {
@@ -186,17 +186,18 @@ export const COMPARISON = [
 export const PARTNER_TYPES = ['Fintech', 'Corporate Business Correspondent', 'NGO', 'SHG', 'FPO', 'NBFC', 'Bank', 'Other'];
 export const PRODUCT_CATEGORIES = ['Lending', 'Wellness', 'Healthcare', 'Insurance*', 'Multiple categories', 'None yet'];
 
-export const INSURANCE_DISCLAIMER = '*Insurance products are subject to applicable regulatory requirements and the processes of authorised product partners.';
+export const INSURANCE_DISCLAIMER = '*Insurance products are subject to applicable regulatory requirements and the processes of IRDAI authorised intermediaries.';
 
 export const RURAL_IMPACT = {
   eyebrow: 'A Built-In Advantage for Insurers',
-  title: 'Rural & Social Impact',
+  title: 'Rural & Social Edge',
   description:
-    'Indian insurers face mandatory rural and social sector obligations. RevaSure gives you a ready-made, execution-ready path to meet them profitably.',
+    'Rural and Social Sectors are going to power the next wave of growth for Indian Insurers.',
+  descriptionTwo:
+    'RevaSure connects Insurers to rural and social sectors through its associations including:',
   bullets: [
     'Vast rural & semi-urban distribution network: NGOs, SHGs, FPOs and RMFs.',
     'Consulting + distribution execution to design products that actually fit rural livelihoods.',
-    'Meet regulatory obligations while building profitable, long-term rural relationships.',
   ],
   stat: {
     value: '$70B+',

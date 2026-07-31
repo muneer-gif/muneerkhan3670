@@ -26,7 +26,7 @@ const Comparison = () => {
             </div>
             <div className="p-6" style={{background: 'linear-gradient(135deg, rgba(2,47,113,0.04), rgba(4,146,151,0.06))'}}>
               <div className="text-xs uppercase tracking-widest text-[#049297] font-semibold"><Brand className="text-[11px]" /> model</div>
-              <div className="text-lg font-semibold text-[#022F71] mt-1">The unified way</div>
+              <div className="text-lg font-semibold text-[#022F71] mt-1">The Unified Way</div>
             </div>
           </div>
 

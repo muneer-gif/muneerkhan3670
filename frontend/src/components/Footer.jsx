@@ -16,7 +16,7 @@ const Footer = () => {
               <div className="flex flex-col leading-tight">
                 <Brand variant="onDark" className="text-xl" />
                 <span className="text-[10px] text-[#A0C8D6] tracking-[0.18em] uppercase font-semibold">
-                  One Platform. Infinite Reach.
+                  One Platform. Infinite Possibilities.
                 </span>
               </div>
             </div>
@@ -30,6 +30,7 @@ const Footer = () => {
             <div className="text-sm font-semibold text-white">Product</div>
             <ul className="mt-4 space-y-2 text-sm text-white/85">
               <li><a href="#markets" className="hover:text-white">Products</a></li>
+              <li><a href="#platform" className="hover:text-white">Platform</a></li>
               <li><a href="#architecture" className="hover:text-white">Architecture</a></li>
               <li><a href="#comparison" className="hover:text-white">Comparison</a></li>
             </ul>

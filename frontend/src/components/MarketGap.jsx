@@ -6,7 +6,7 @@ import Brand from './Brand';
 
 const MarketGap = () => {
   return (
-    <section className="py-16 lg:py-20 bg-white relative overflow-hidden">
+    <section id="platform" className="py-16 lg:py-20 bg-white relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 grid lg:grid-cols-2 gap-14 items-start">
         <Reveal variant="left">
         <div>
@@ -22,13 +22,16 @@ const MarketGap = () => {
 
           <div className="mt-8 rounded-2xl border border-[#049297]/25 bg-[#F7FAFC] p-6">
             <div className="flex items-start gap-3">
-              <div className="w-10 h-10 rounded-xl bg-[#049297]/10 flex items-center justify-center flex-shrink-0">
-                <ArrowRight size={18} className="text-[#049297]" />
+              <div className="w-11 h-11 rounded-xl bg-[#049297]/10 flex items-center justify-center flex-shrink-0">
+                <ArrowRight size={20} className="text-[#049297]" />
               </div>
               <div>
-                <div className="text-sm font-semibold text-[#022F71]"><Brand /> closes the gap</div>
-                <div className="text-sm text-[#22405e] mt-1">
-                  <Brand /> brings these requirements together through one platform relationship.
+                <div className="text-xl md:text-2xl font-semibold text-[#022F71] leading-tight">
+                  <Brand className="text-xl md:text-2xl" /> closes the gap
+                </div>
+                <div className="text-base text-[#22405e] mt-2 leading-relaxed">
+                  Unlock peak efficiency with <Brand />. Your all-in-one platform for seamless
+                  operational success.
                 </div>
               </div>
             </div>

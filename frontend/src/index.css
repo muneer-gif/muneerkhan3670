@@ -239,6 +239,21 @@ html { scroll-behavior: smooth; }
   50% { transform: translate(6px, -6px) scale(1.08); }
 }
 
+/* Hero eyebrow bullets — each animates independently to invite attention */
+.hero-bullet {
+  display: inline-block;
+  animation: heroBulletPop 3.6s ease-in-out infinite;
+  will-change: transform, color;
+}
+.hero-bullet-1 { animation-delay: 0s; }
+.hero-bullet-2 { animation-delay: 1.2s; }
+.hero-bullet-3 { animation-delay: 2.4s; }
+@keyframes heroBulletPop {
+  0%, 82%, 100% { transform: translateY(0) scale(1); color: #022F71; }
+  8% { transform: translateY(-2px) scale(1.08); color: #049297; }
+  16% { transform: translateY(0) scale(1); color: #022F71; }
+}
+
 /* Underline sweep for nav links (already exists but add subtle style) */
 .link-sweep::after {
   content: '';

@@ -5,7 +5,7 @@ import Reveal from './Reveal';
 import Brand from './Brand';
 
 const MarketSection = () => {
-  const [filter, setFilter] = useState('All markets');
+  const [filter, setFilter] = useState('Explore Opportunities');
   const [selected, setSelected] = useState(null);
   const [metric, setMetric] = useState('Current market');
 
@@ -25,7 +25,7 @@ const MarketSection = () => {
   }, [selected]);
 
   const tiles = useMemo(() => {
-    if (filter === 'All markets') return MARKET_TILES;
+    if (filter === 'Explore Opportunities') return MARKET_TILES;
     return MARKET_TILES.filter((t) => t.category === filter);
   }, [filter]);
 
@@ -157,8 +157,12 @@ const MarketSection = () => {
                 {RURAL_IMPACT.title}
               </h3>
               <p className="mt-3 text-[15px] text-[#22405e] leading-relaxed max-w-xl">
-                Indian insurers face mandatory rural and social sector obligations. <Brand /> gives
-                you a ready-made, execution-ready path to meet them profitably.
+                Rural and Social Sectors are going to power the next wave of growth for Indian
+                Insurers.
+              </p>
+              <p className="mt-2 text-[15px] text-[#22405e] leading-relaxed max-w-xl">
+                <Brand /> connects Insurers to rural and social sectors through its associations
+                including:
               </p>
 
               <ul className="mt-5 space-y-3">
