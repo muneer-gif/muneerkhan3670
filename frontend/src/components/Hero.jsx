@@ -15,11 +15,11 @@ const Hero = () => {
         <div className="grid lg:grid-cols-12 gap-10 items-center">
           <div className="lg:col-span-7 fade-in-up">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#049297]/25 bg-white/80 px-4 py-1.5 text-xs font-medium text-[#022F71] shadow-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#049297] pulse-dot" />
+              <span className="w-1.5 h-1.5 rounded-full bg-[#049297]" />
               <span className="hero-bullet hero-bullet-1">Trust</span>
-              <span className="text-[#049297]">&bull;</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#049297]" />
               <span className="hero-bullet hero-bullet-2">Technology</span>
-              <span className="text-[#049297]">&bull;</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#049297]" />
               <span className="hero-bullet hero-bullet-3">Reach</span>
             </div>
 
