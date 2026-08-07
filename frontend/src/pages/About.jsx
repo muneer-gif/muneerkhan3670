@@ -81,7 +81,7 @@ const PILLARS = [
       {
         heading: 'B2B Alliances',
         body:
-          'A proven track record of securing high-yield enterprise partnerships with Tier-1 Banks, NBFCs, and digital-first platforms to tap into underserved market segments.',
+          'A proven track record of securing high-yield enterprise partnerships with Banks, NBFCs, and fintechs, driving exponential revenue growth across India\u2019s booming BFSI landscape.',
       },
     ],
   },
