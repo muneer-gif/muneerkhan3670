@@ -113,24 +113,29 @@ const About = () => {
 
         <div className="max-w-6xl mx-auto px-6 lg:px-10 pt-12 pb-16 lg:pt-20 lg:pb-24 relative">
           <Reveal>
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#049297]/25 bg-white/80 px-4 py-1.5 text-xs font-medium text-[#022F71] shadow-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#049297]" />
-            About Us
+          <div className="text-center">
+            <div className="inline-flex items-center gap-2 rounded-full border border-[#049297]/25 bg-white/80 px-4 py-1.5 text-xs font-medium text-[#022F71] shadow-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#049297]" />
+              About Us
+            </div>
+
+            <h1 className="mt-6 text-5xl md:text-6xl lg:text-7xl leading-[1.02] tracking-tight text-[#022F71] font-semibold">
+              Welcome to <Brand className="text-5xl md:text-6xl lg:text-7xl" />
+            </h1>
+
+            <p className="mt-6 text-xl md:text-2xl lg:text-3xl leading-tight tracking-tight text-[#22405e] font-medium max-w-4xl mx-auto">
+              where deep industry experience meets modern
+              <span className="text-gradient-brand"> financial technology innovation.</span>
+            </p>
+
+            <p className="mt-8 text-base md:text-lg text-[#22405e] max-w-3xl mx-auto leading-relaxed">
+              We are an elite cohort of senior business leaders, technology entrepreneurs and
+              ecosystem strategists dedicated to reshaping the Indian BFSI, FinTech and InsurTech
+              landscapes. By bridging the gap between traditional financial architectures and agile
+              digital distribution networks, we build scalable, future-ready commercial ecosystems
+              that drive deep market penetration and sustainable growth.
+            </p>
           </div>
-
-          <h1 className="mt-6 text-4xl md:text-5xl lg:text-6xl leading-[1.05] tracking-tight text-[#022F71]">
-            Welcome to <Brand />, where deep <br className="hidden md:block" />
-            industry experience meets modern <br className="hidden md:block" />
-            <span className="text-gradient-brand">financial technology innovation.</span>
-          </h1>
-
-          <p className="mt-6 text-lg text-[#22405e] max-w-4xl leading-relaxed">
-            We are an elite cohort of senior business leaders, technology entrepreneurs and ecosystem
-            strategists dedicated to reshaping the Indian BFSI, FinTech and InsurTech landscapes. By
-            bridging the gap between traditional financial architectures and agile digital
-            distribution networks, we build scalable, future-ready commercial ecosystems that drive
-            deep market penetration and sustainable growth.
-          </p>
           </Reveal>
         </div>
       </section>
