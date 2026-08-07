@@ -7,6 +7,7 @@ export const NAV_LINKS = [
   { label: 'Platform', href: '#platform' },
   { label: 'Architecture', href: '#architecture' },
   { label: 'Comparison', href: '#comparison' },
+  { label: 'About Us', href: '/about' },
 ];
 
 export const MARKET_TILES = [

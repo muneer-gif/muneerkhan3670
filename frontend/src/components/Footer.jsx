@@ -1,9 +1,13 @@
 import React from 'react';
 import { Linkedin, Twitter, Mail } from 'lucide-react';
+import { Link, useLocation } from 'react-router-dom';
 import { COMPANY_LOGO, INSURANCE_DISCLAIMER } from '../mock';
 import Brand from './Brand';
 
 const Footer = () => {
+  const { pathname } = useLocation();
+  const h = (anchor) => (pathname === '/' ? anchor : `/${anchor}`);
+
   return (
     <footer className="bg-[#022F71] text-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-14">
@@ -29,18 +33,19 @@ const Footer = () => {
           <div>
             <div className="text-sm font-semibold text-white">Product</div>
             <ul className="mt-4 space-y-2 text-sm text-white/85">
-              <li><a href="#markets" className="hover:text-white">Products</a></li>
-              <li><a href="#platform" className="hover:text-white">Platform</a></li>
-              <li><a href="#architecture" className="hover:text-white">Architecture</a></li>
-              <li><a href="#comparison" className="hover:text-white">Comparison</a></li>
+              <li><a href={h('#markets')} className="hover:text-white">Products</a></li>
+              <li><a href={h('#platform')} className="hover:text-white">Platform</a></li>
+              <li><a href={h('#architecture')} className="hover:text-white">Architecture</a></li>
+              <li><a href={h('#comparison')} className="hover:text-white">Comparison</a></li>
             </ul>
           </div>
 
           <div>
-            <div className="text-sm font-semibold text-white">Contact</div>
+            <div className="text-sm font-semibold text-white">Company</div>
             <ul className="mt-4 space-y-2 text-sm text-white/85">
-              <li><a href="#cta" className="hover:text-white">Partner with us</a></li>
-              <li><a href="#cta" className="hover:text-white">Request walkthrough</a></li>
+              <li><Link to="/about" className="hover:text-white">About Us</Link></li>
+              <li><a href={h('#cta')} className="hover:text-white">Partner with us</a></li>
+              <li><a href={h('#cta')} className="hover:text-white">Request walkthrough</a></li>
               <li className="flex items-center gap-3 pt-2">
                 <a href="#" aria-label="LinkedIn" className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#049297] transition-colors"><Linkedin size={14} /></a>
                 <a href="#" aria-label="Twitter" className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#049297] transition-colors"><Twitter size={14} /></a>
