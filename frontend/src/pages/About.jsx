@@ -19,23 +19,6 @@ import Reveal from '../components/Reveal';
 const PILLARS = [
   {
     id: 1,
-    icon: Network,
-    title: 'Strategic Alliances & Ecosystem Distribution',
-    points: [
-      {
-        heading: 'Institutional Scale',
-        body:
-          'Our leadership has directly defined and scaled alternative distribution channels across massive networks of over 1.3 million retail agents and partners in India.',
-      },
-      {
-        heading: 'B2B Alliances',
-        body:
-          'A proven track record of securing high-yield enterprise partnerships with Tier-1 Banks, NBFCs, and digital-first platforms to tap into underserved market segments.',
-      },
-    ],
-  },
-  {
-    id: 2,
     icon: Cpu,
     title: 'Digital-First Technology & AI Advisory',
     points: [
@@ -52,7 +35,7 @@ const PILLARS = [
     ],
   },
   {
-    id: 3,
+    id: 2,
     icon: GraduationCap,
     title: 'Institutional Learning & Human Capital Operations',
     points: [
@@ -69,7 +52,7 @@ const PILLARS = [
     ],
   },
   {
-    id: 4,
+    id: 3,
     icon: HeartHandshake,
     title: 'Systemic Impact & Last-Mile Financial Inclusion',
     points: [
@@ -82,6 +65,23 @@ const PILLARS = [
         heading: 'Corporate Governance & CSR',
         body:
           'Managed diverse multi-state CSR portfolios containing over 110 institutional projects across 25 states, working in tandem with government agencies, multilateral bodies and corporate boards.',
+      },
+    ],
+  },
+  {
+    id: 4,
+    icon: Network,
+    title: 'Strategic Alliances & Ecosystem Distribution',
+    points: [
+      {
+        heading: 'Institutional Scale',
+        body:
+          'Our leadership has directly defined and scaled alternative distribution channels across massive networks of over 1.3 million retail agents and partners in India.',
+      },
+      {
+        heading: 'B2B Alliances',
+        body:
+          'A proven track record of securing high-yield enterprise partnerships with Tier-1 Banks, NBFCs, and digital-first platforms to tap into underserved market segments.',
       },
     ],
   },
