@@ -60,8 +60,8 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
             <div>&copy; {new Date().getFullYear()} RevaSure. All rights reserved.</div>
             <div className="flex gap-6">
-              <a href="#" className="hover:text-white">Privacy</a>
-              <a href="#" className="hover:text-white">Terms</a>
+              <Link to="/privacy" className="hover:text-white">Privacy</Link>
+              <Link to="/terms" className="hover:text-white">Terms</Link>
               <a href="#" className="hover:text-white">Compliance</a>
             </div>
           </div>
