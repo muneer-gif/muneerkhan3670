@@ -1,5 +1,5 @@
 import React from 'react';
-import { Linkedin, Twitter, Mail } from 'lucide-react';
+import { Linkedin, Mail } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { COMPANY_LOGO, INSURANCE_DISCLAIMER } from '../mock';
 import Brand from './Brand';
@@ -47,9 +47,22 @@ const Footer = () => {
               <li><a href={h('#cta')} className="hover:text-white">Partner with us</a></li>
               <li><a href={h('#cta')} className="hover:text-white">Request walkthrough</a></li>
               <li className="flex items-center gap-3 pt-2">
-                <a href="#" aria-label="LinkedIn" className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#049297] transition-colors"><Linkedin size={14} /></a>
-                <a href="#" aria-label="Twitter" className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#049297] transition-colors"><Twitter size={14} /></a>
-                <a href="#" aria-label="Email" className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#049297] transition-colors"><Mail size={14} /></a>
+                <a
+                  href="https://www.linkedin.com/company/revasure-private-limited/about/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="LinkedIn"
+                  className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#049297] transition-colors"
+                >
+                  <Linkedin size={14} />
+                </a>
+                <a
+                  href="mailto:muneer@revasure.biz"
+                  aria-label="Email"
+                  className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center hover:bg-[#049297] transition-colors"
+                >
+                  <Mail size={14} />
+                </a>
               </li>
             </ul>
           </div>
