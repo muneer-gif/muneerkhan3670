@@ -51,7 +51,7 @@ const Architecture = () => {
             How <Brand /> <span className="text-gradient-brand">connects the flow</span>
           </h2>
           <p className="mt-5 text-lg text-[#22405e] leading-relaxed">
-            From your existing platform to a coordinated product ecosystem &mdash; in five clear steps.
+            From your existing platform to a coordinated product ecosystem - in five clear steps.
           </p>
         </div>
         </Reveal>

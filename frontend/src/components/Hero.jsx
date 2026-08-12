@@ -33,7 +33,7 @@ const Hero = () => {
 
             <p className="mt-6 text-lg text-[#22405e] max-w-2xl leading-relaxed">
               Offer lending, wellness, healthcare and insurance* products through a single gateway,
-              white-label platform&mdash;without managing separate partnerships, integrations and
+              white-label platform - without managing separate partnerships, integrations and
               operational workflows.
             </p>
 
