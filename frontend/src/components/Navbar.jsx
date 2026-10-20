@@ -43,7 +43,7 @@ const NavDropdown = ({ item }) => (
     <button type="button" className="text-sm font-medium text-[#022F71] group-hover:text-[#049297] transition-colors inline-flex items-center gap-1">
       {item.label} <ChevronDown size={14} className="transition-transform duration-300 group-hover:rotate-180" />
     </button>
-    <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-[opacity,transform] duration-200">
+    <div className="absolute left-1/2 -translate-x-1/2 top-full pt-3 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 transition-[opacity,transform] duration-200">
       <div className="w-64 rounded-2xl bg-white border border-[#022F71]/10 shadow-[0_20px_45px_-20px_rgba(2,47,113,0.45)] p-2 flex flex-col">
         {item.children.map((c) => (
           <div key={c.href} className="rounded-xl px-3 py-2.5 hover:bg-[#F7FAFC] [&_span]:hidden">

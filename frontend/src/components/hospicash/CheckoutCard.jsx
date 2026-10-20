@@ -60,7 +60,7 @@ const CheckoutCard = ({ consent, setConsent, openDoc }) => {
           Buy Now <ArrowRight size={18} />
         </button>
         <p data-testid="buy-now-helper" className="text-xs text-center text-[#22405e]">
-          {ready ? 'You will be redirected to our secure Easebuzz payment page.' : 'Please accept both policies to continue.'}
+          {ready ? (HOSPICASH_BUY_URL ? 'You will be redirected to our secure Easebuzz payment page.' : 'Online payment is launching soon.') : 'Please accept both policies to continue.'}
         </p>
 
         <div className="grid grid-cols-2 gap-3 pt-2">

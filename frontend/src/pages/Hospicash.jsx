@@ -24,7 +24,7 @@ export default function Hospicash() {
     : undefined;
 
   return (
-    <div className="min-h-screen" data-testid="hospicash-page">
+    <div className="min-h-screen overflow-x-clip" data-testid="hospicash-page">
       <Navbar />
       <HospicashHero />
       <BenefitsSection />
