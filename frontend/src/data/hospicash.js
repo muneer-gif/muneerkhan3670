@@ -1,7 +1,6 @@
 // Hospicash product content (from Hospicash brochure + policy documents)
 
-// TODO: replace with the live Easebuzz payment link
-export const HOSPICASH_BUY_URL = '';
+export const HOSPICASH_BUY_URL = 'https://app.revasure.biz/mpay/future-generali/basket/b_88f9ad0e9d097a9cb41488b13db4dd0e';
 
 export const HOSPICASH_IMAGE = 'https://images.pexels.com/photos/18394078/pexels-photo-18394078.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1200';
 
