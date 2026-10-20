@@ -3,7 +3,10 @@
 export const COMPANY_LOGO = 'https://customer-assets-agu9un31.emergentagent.net/job_pdf-web-design-2/artifacts/rm5urnd3_Company%20Logo.png';
 
 export const NAV_LINKS = [
-  { label: 'Products', href: '#markets' },
+  { label: 'Products', href: '#markets', children: [
+    { label: 'Explore markets', href: '#markets' },
+    { label: 'Hospicash', href: '/products/hospicash', note: 'Health & accident protection' },
+  ] },
   { label: 'Platform', href: '#platform' },
   { label: 'Architecture', href: '#architecture' },
   { label: 'Comparison', href: '#comparison' },

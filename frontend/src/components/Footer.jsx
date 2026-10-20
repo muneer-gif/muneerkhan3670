@@ -34,6 +34,7 @@ const Footer = () => {
             <div className="text-sm font-semibold text-white">Product</div>
             <ul className="mt-4 space-y-2 text-sm text-white/85">
               <li><a href={h('#markets')} className="hover:text-white">Products</a></li>
+              <li><Link to="/products/hospicash" data-testid="footer-hospicash-link" className="hover:text-white">Hospicash</Link></li>
               <li><a href={h('#platform')} className="hover:text-white">Platform</a></li>
               <li><a href={h('#architecture')} className="hover:text-white">Architecture</a></li>
               <li><a href={h('#comparison')} className="hover:text-white">Comparison</a></li>
