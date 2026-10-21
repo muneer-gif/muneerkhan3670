@@ -13,7 +13,7 @@ React 19 + Tailwind + React Router. Frontend-only, data in src/mock.js and src/d
 - 2026-06: Navbar Products dropdown (Explore markets, Hospicash) and a footer Hospicash link
 - Tested: iteration_1.json, 100% frontend
 
-- 2026-06: Live Buy Now link connected (https://app.revasure.biz/mpay/future-generali/basket/b_88f9ad0e9d097a9cb41488b13db4dd0e). It opens in a new tab once both consents are ticked.
+- 2026-06: Live Buy Now link connected (https://staging-app.revasure.biz/mpay/revasure/basket/b_a285ae2c8892b5f91eef78595bc806de). It opens in a new tab once both consents are ticked.
 - 2026-06: Compared the site with the GPT-5.6 Luna content spec. The user chose to KEEP all current copy (Infinite Possibilities tagline, hero copy, extra markets/items, custom headings). No changes made.
 
 ## Backlog

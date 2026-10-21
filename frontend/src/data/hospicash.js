@@ -1,6 +1,6 @@
 // Hospicash product content (from Hospicash brochure + policy documents)
 
-export const HOSPICASH_BUY_URL = 'https://app.revasure.biz/mpay/future-generali/basket/b_88f9ad0e9d097a9cb41488b13db4dd0e';
+export const HOSPICASH_BUY_URL = 'https://staging-app.revasure.biz/mpay/revasure/basket/b_a285ae2c8892b5f91eef78595bc806de';
 
 export const HOSPICASH_IMAGE = 'https://images.pexels.com/photos/18394078/pexels-photo-18394078.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=900&w=1200';
 
